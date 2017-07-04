@@ -17,18 +17,26 @@ public class TelaInicial extends javax.swing.JFrame {
     protected JMenuItem conectar, iniciarPartida, desconectar, reiniciar;
     protected AtorJogador ator;
     protected TelaInstrucoes tela_instrucoes;
+    protected static TelaInicial telaInicial;
 
     /**
      * Creates new form TelaInicial
      */
-    public TelaInicial(final AtorJogador ator) {
+    private TelaInicial(final AtorJogador ator) {
         this.ator = ator;
         initComponents();
     }
 
-    public TelaInicial() {
+    private TelaInicial() {
         initComponents();
         tela_instrucoes = new TelaInstrucoes();
+    }
+    
+    public static TelaInicial getInstance() {
+        if (telaInicial == null) {
+            telaInicial = new TelaInicial();
+        }
+        return telaInicial;
     }
     
     public void notificar(String msg) {

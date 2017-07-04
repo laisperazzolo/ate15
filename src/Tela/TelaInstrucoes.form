@@ -82,6 +82,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Voltar"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jToggleButton1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelInstrucoes">
       <Properties>

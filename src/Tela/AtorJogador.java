@@ -16,7 +16,7 @@ public class AtorJogador {
 
     public AtorJogador(final AtorJogador ator) {
         this.tabuleiro = new Tabuleiro();
-        this.tela = new TelaInicial(this);
+        this.tela = tela.getInstance();
         this.rede = new AtorNetGames(this);
     }
 

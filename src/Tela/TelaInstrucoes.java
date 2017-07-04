@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Tela;
 
-/**
- *
- * @author projetoEsus
- */
 public class TelaInstrucoes extends javax.swing.JFrame {
+    
+    protected TelaInicial tela;
 
     /**
      * Creates new form TelaInstrucoes
@@ -39,6 +32,11 @@ public class TelaInstrucoes extends javax.swing.JFrame {
         ate15.setText("Até 15");
 
         jToggleButton1.setText("Voltar");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
 
         labelInstrucoes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labelInstrucoes.setText("Instruções:");
@@ -85,6 +83,12 @@ public class TelaInstrucoes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+       tela = tela.getInstance();
+       tela.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jToggleButton1MouseClicked
 
     /**
      * @param args the command line arguments
