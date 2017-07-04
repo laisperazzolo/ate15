@@ -39,21 +39,24 @@ public class Tabuleiro implements Jogada{
     public boolean informaSePartidaEmAndamento() {
 		return this.partidaEmAndamento;
     }
+    
+    /*
     // tem que mexer nessa bagaça (codigo abaixo)
-    public void realizaJogada(int tipoMovimento, int posicaoClicada) throws Exception{
+    public void realizaJogada(int tipoMovimento, int posicaoClicada) throws Exception {
         verificaMovimentoPosicao(tipoMovimento, posicaoClicada);
-		
-	calcularDistancia(posicaoClicada, jogador1.getPosicaoAtual(), tipoMovimento);
-	if(tipoMovimento == 2){
-		this.jogador1.setPosicaoAtual(posicaoClicada);
-	}
-	if(posicaoClicada == jogador2.getPosicaoAtual()){
-		jogador1.setVencedor(true);
-		jogador1.setNumeroDeVitorias(jogador1.getNumeroDeVitorias()+1);
-	}
-	jogador1.setJogadorDaVez(false);
-		
-	}
+
+        calcularDistancia(posicaoClicada, jogador1.getPosicaoAtual(), tipoMovimento);
+        if (tipoMovimento == 2) {
+            this.jogador1.setPosicaoAtual(posicaoClicada);
+        }
+        if (posicaoClicada == jogador2.getPosicaoAtual()) {
+            jogador1.setVencedor(true);
+            jogador1.setNumeroDeVitorias(jogador1.getNumeroDeVitorias() + 1);
+        }
+        jogador1.setJogadorDaVez(false);
+    }
+    */
+
     public Jogador getJogador1() {
         return jogador1;
     }

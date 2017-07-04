@@ -5,18 +5,36 @@
  */
 package Tela;
  
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author projetoEsus
  */
 public class TelaInicial extends javax.swing.JFrame {
+    
+    protected JMenuItem conectar, iniciarPartida, desconectar, reiniciar;
+    protected AtorJogador ator;
 
     /**
      * Creates new form TelaInicial
      */
     public TelaInicial(final AtorJogador ator) {
         this.ator = ator;
-        //initComponents();
+        initComponents();
+    }
+
+    public TelaInicial() {
+        initComponents();
+    }
+    
+    public void notificar(String msg) {
+        JOptionPane.showMessageDialog(null, msg);
+    }
+
+    public String solicitar(String msg, String def) {
+        return JOptionPane.showInputDialog(msg, def);
     }
 
     /**
@@ -29,11 +47,11 @@ public class TelaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         ate15 = new javax.swing.JLabel();
-        botaoIniciarPartida = new javax.swing.JButton();
         botaoInstrucoes = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,16 +60,32 @@ public class TelaInicial extends javax.swing.JFrame {
         ate15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ate15.setText("Até 15");
 
-        botaoIniciarPartida.setText("Iniciar Partida");
-
         botaoInstrucoes.setText("Instruções");
 
         jMenu2.setText("Opções");
 
         jMenuItem1.setText("Conectar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
+        jMenuItem3.setText("Iniciar Partida");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
         jMenuItem2.setText("Desconectar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -65,13 +99,10 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(botaoInstrucoes, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(142, 142, 142)
-                            .addComponent(ate15))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(102, 102, 102)
-                            .addComponent(botaoIniciarPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(ate15)
+                        .addGap(65, 65, 65)))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -80,14 +111,59 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(ate15)
                 .addGap(26, 26, 26)
-                .addComponent(botaoIniciarPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(botaoInstrucoes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // opcao Iniciar Partida
+        try {
+            ator.IniciarPartida();
+            if (ator.getTabuleiro().informaSePartidaEmAndamento()) {
+                reiniciar.setEnabled(true);
+                iniciarPartida.setEnabled(false);
+            }
+
+        } catch (Exception e1) {
+            notificar(e1.getMessage());
+            e1.printStackTrace();
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // opcao Conectar
+        try {
+            String nomeJogador = solicitar("Insira seu nome:", null);
+            String servidor = solicitar("Insira o servidor:", "localhost");
+            //user.setText("Jogador: " + nomeJogador);
+            ator.conectar(nomeJogador, servidor);
+            iniciarPartida.setEnabled(true);
+            desconectar.setEnabled(true);
+            conectar.setEnabled(false);
+            notificar("Conexão estabelecida com sucesso!");
+        } catch (Exception ex) {
+            notificar(ex.getMessage());
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // opcao Desconectar
+        try {
+            ator.desconectar();
+            desconectar.setEnabled(false);
+            conectar.setEnabled(true);
+            reiniciar.setEnabled(false);
+            iniciarPartida.setEnabled(false);
+            notificar("Conexão encerrada com sucesso!");
+        } catch (Exception ex) {
+            notificar(ex.getMessage());
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,14 +199,14 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
     }
-    protected AtorJogador ator;
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ate15;
-    private javax.swing.JButton botaoIniciarPartida;
     private javax.swing.JButton botaoInstrucoes;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

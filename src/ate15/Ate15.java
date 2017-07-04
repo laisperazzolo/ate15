@@ -5,6 +5,7 @@
  */
 package ate15;
 
+import Tela.TelaInicial;
 import ate15.Telas.TelaDoJogo;
 
 /**
@@ -18,8 +19,8 @@ public class Ate15 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        TelaDoJogo a = new TelaDoJogo();
-        a.setVisible(true);
+        TelaInicial t = new TelaInicial();
+        t.setVisible(true);
     }
     
 }
