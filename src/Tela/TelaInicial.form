@@ -100,6 +100,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Instru&#xe7;&#xf5;es"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botaoInstrucoesMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

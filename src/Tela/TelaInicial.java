@@ -16,6 +16,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
     protected JMenuItem conectar, iniciarPartida, desconectar, reiniciar;
     protected AtorJogador ator;
+    protected TelaInstrucoes tela_instrucoes;
 
     /**
      * Creates new form TelaInicial
@@ -27,6 +28,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     public TelaInicial() {
         initComponents();
+        tela_instrucoes = new TelaInstrucoes();
     }
     
     public void notificar(String msg) {
@@ -61,6 +63,11 @@ public class TelaInicial extends javax.swing.JFrame {
         ate15.setText("Até 15");
 
         botaoInstrucoes.setText("Instruções");
+        botaoInstrucoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoInstrucoesMouseClicked(evt);
+            }
+        });
 
         jMenu2.setText("Opções");
 
@@ -164,6 +171,10 @@ public class TelaInicial extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void botaoInstrucoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoInstrucoesMouseClicked
+        tela_instrucoes.setVisible(true);
+    }//GEN-LAST:event_botaoInstrucoesMouseClicked
 
     /**
      * @param args the command line arguments
