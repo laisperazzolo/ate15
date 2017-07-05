@@ -5,6 +5,7 @@
  */
 package Tela;
  
+import Controle.Tabuleiro;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
@@ -18,6 +19,7 @@ public class TelaInicial extends javax.swing.JFrame {
     protected AtorJogador ator;
     protected TelaInstrucoes tela_instrucoes;
     protected static TelaInicial telaInicial;
+    protected Tabuleiro tabuleiro = new Tabuleiro();
 
     /**
      * Creates new form TelaInicial
@@ -30,6 +32,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private TelaInicial() {
         initComponents();
         tela_instrucoes = new TelaInstrucoes();
+        ator = new AtorJogador(this, tabuleiro);
     }
     
     public static TelaInicial getInstance() {
@@ -153,8 +156,7 @@ public class TelaInicial extends javax.swing.JFrame {
         try {
             String nomeJogador = solicitar("Insira seu nome:", null);
             String servidor = solicitar("Insira o servidor:", "localhost");
-            //user.setText("Jogador: " + nomeJogador);
-            ator.conectar(nomeJogador, servidor);
+            ator.conectar(servidor, nomeJogador);
             iniciarPartida.setEnabled(true);
             desconectar.setEnabled(true);
             conectar.setEnabled(false);

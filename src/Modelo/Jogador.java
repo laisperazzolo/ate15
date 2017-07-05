@@ -12,11 +12,13 @@ import br.ufsc.inf.leobr.cliente.Jogada;
  * @author Mirian
  */
 public class Jogador implements Jogada{
-    protected boolean jogadorDaVez= false;
+    
+    protected boolean jogadorDaVez = false;
     protected boolean vencedor;
     protected String nome;
     protected String cor;
     protected int[] posicao = new int[5];
+    protected int numeroDeVitorias;
     
     public Jogador (String nome){
         this.nome = nome;

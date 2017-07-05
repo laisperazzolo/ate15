@@ -8,7 +8,6 @@ import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 import Controle.Tabuleiro;
 import Tela.AtorJogador;
 
-//Laís só copiei 
 public class AtorNetGames implements OuvidorProxy {
 
     private static final long serialVersionUID = 0L;
@@ -16,12 +15,13 @@ public class AtorNetGames implements OuvidorProxy {
     protected Proxy proxy;
 
     public AtorNetGames(AtorJogador ator) {
-        atorJogador = ator;
-        proxy = Proxy.getInstance();
-        proxy.addOuvinte(this);
+        super();
+        this.atorJogador = ator;
+        this.proxy = Proxy.getInstance();
+        this.proxy.addOuvinte(this);
     }
 
-    public void conectar(String idJogador, String servidor) throws Exception {
+    public void conectar(String servidor, String idJogador) throws Exception {
         proxy.conectar(servidor, idJogador);
     }
 

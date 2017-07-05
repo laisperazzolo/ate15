@@ -12,17 +12,17 @@ public class AtorJogador {
     protected AtorNetGames rede;
     protected String idUsuario;
     protected TelaInicial tela;
-    protected AtorJogador ator;
 
-    public AtorJogador(final AtorJogador ator) {
-        this.tabuleiro = new Tabuleiro();
-        this.tela = tela.getInstance();
+    public AtorJogador(TelaInicial tela, Tabuleiro tabuleiro) {
+        this.tabuleiro = tabuleiro;
+        this.tela = tela;
         this.rede = new AtorNetGames(this);
+        tela.setVisible(true);
     }
 
-    public void conectar(String idUsuario, String servidor) throws Exception {
+    public void conectar(String servidor,String idUsuario) throws Exception {
         this.idUsuario = idUsuario;
-        rede.conectar(idUsuario, servidor);
+        rede.conectar(servidor,idUsuario);
     }
     
     public void IniciarPartida() throws NaoConectadoException {
@@ -65,6 +65,7 @@ public class AtorJogador {
         this.rede.enviarJogada(null);
     }
 
+    */
     public void notificar(String mensagem) {
         tela.notificar(mensagem);
     }
@@ -80,6 +81,7 @@ public class AtorJogador {
         this.rede.enviarJogada(this.tabuleiro);
     }
 
+    /*
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
         if (tab == null) {
             int opt = this.tela.perguntar("O outro jogador deseja reiniciar a partida. Você iniciará com o lado branco.");

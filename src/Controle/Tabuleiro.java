@@ -21,19 +21,18 @@ public class Tabuleiro implements Jogada{
     protected boolean reiniciado;
     
     public Tabuleiro(){
-        
     }
     
     // talvez esse jogador não seja necessario
     public Tabuleiro (Jogador jogador1, Jogador jogador2, int[] tabuleiro){
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
-        this.tabuleiro =tabuleiro;
+        this.tabuleiro = tabuleiro;
     }
     
     public void criarJogadores(String idJogador, String adversario, int posicao) {
-		jogador1 = new Jogador(idJogador);
-		jogador2 = new Jogador(adversario);
+        jogador1 = new Jogador(idJogador);
+        jogador2 = new Jogador(adversario);
     }
     
     public boolean informaSePartidaEmAndamento() {
@@ -82,4 +81,12 @@ public class Tabuleiro implements Jogada{
         this.tabuleiro = tabuleiro;
     }
     
+    public boolean isPartidaEmAndamento() {
+        return partidaEmAndamento;
+    }
+
+    public void setPartidaEmAndamento(boolean partidaEmAndamento) {
+        this.partidaEmAndamento = partidaEmAndamento;
+    }
+
 }

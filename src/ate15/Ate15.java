@@ -5,6 +5,7 @@
  */
 package ate15;
 
+import Tela.AtorJogador;
 import Tela.TelaInicial;
 import ate15.Telas.TelaDoJogo;
 
@@ -18,6 +19,7 @@ public class Ate15 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+      //  new AtorJogador();
         TelaInicial tela = TelaInicial.getInstance();
         tela.setVisible(true);
     }
