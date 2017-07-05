@@ -7,31 +7,18 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 public class Tabuleiro implements Jogada{
     protected Jogador jogador1;
     protected Jogador jogador2;
-    protected int[] tabuleiro = new int[9];
-    protected boolean partidaEmAndamento;
-    protected AtorJogador jogador;
-    protected boolean reiniciado;
+    protected AtorJogador ator;
     
-    public Tabuleiro(){
+    public Tabuleiro() {
+        
     }
     
-    // talvez esse jogador não seja necessario
-    public Tabuleiro (Jogador jogador1, Jogador jogador2, int[] tabuleiro){
-        this.jogador1 = jogador1;
-        this.jogador2 = jogador2;
-        this.tabuleiro = tabuleiro;
-    }
-    
-    public void criarJogadores(String idJogador, String adversario, int posicao) {
+    public void criarJogadores(String idJogador, String adversario) {
         jogador1 = new Jogador(idJogador);
         jogador2 = new Jogador(adversario);
+        jogador1.setJogadorDaVez(true);
     }
-    
-    public boolean informaSePartidaEmAndamento() {
-		return this.partidaEmAndamento;
-    }
-    
-    
+
     public void realizaJogada(int numeroEscolhido) throws Exception {
         if (jogador1.isJogadorDaVez()) {
             jogador1.gravarJogada(numeroEscolhido);
@@ -45,7 +32,6 @@ public class Tabuleiro implements Jogada{
         } else {
             throw new Exception("Não é sua vez");
         }
-        
     }
 
     public Jogador getJogador1() {
@@ -62,22 +48,6 @@ public class Tabuleiro implements Jogada{
 
     public void setJogador2(Jogador jogador2) {
         this.jogador2 = jogador2;
-    }
-    
-    public int[] getTabuleiro() {
-        return tabuleiro;
-    }
-
-    public void setTabuleiro(int[] tabuleiro) {
-        this.tabuleiro = tabuleiro;
-    }
-    
-    public boolean isPartidaEmAndamento() {
-        return partidaEmAndamento;
-    }
-
-    public void setPartidaEmAndamento(boolean partidaEmAndamento) {
-        this.partidaEmAndamento = partidaEmAndamento;
     }
 
 }

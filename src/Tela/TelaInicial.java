@@ -1,7 +1,6 @@
 package Tela;
  
 import Controle.Tabuleiro;
-import java.awt.Color;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
@@ -13,15 +12,10 @@ public class TelaInicial extends javax.swing.JFrame {
     protected static TelaInicial telaInicial;
     protected Tabuleiro tabuleiro = new Tabuleiro();
 
-    private TelaInicial(final AtorJogador ator) {
-        this.ator = ator;
-        initComponents();
-    }
-
     private TelaInicial() {
         initComponents();
         tela_instrucoes = new TelaInstrucoes();
-        ator = new AtorJogador(this, tabuleiro);
+        ator = new AtorJogador(this);
     }
     
     public static TelaInicial getInstance() {
@@ -333,8 +327,10 @@ public class TelaInicial extends javax.swing.JFrame {
     public void clickPosicao(int numeroEscolhido) {
         try {
             ator.realizaJogada(numeroEscolhido);
+            botao1.setEnabled(false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
+            e.printStackTrace();
         }
     }
     
@@ -350,8 +346,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botao1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao1MouseClicked
-        clickPosicao(1);
-        botao1.setEnabled(false);
+        clickPosicao(1);        
     }//GEN-LAST:event_botao1MouseClicked
 
     private void botao2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao2MouseClicked

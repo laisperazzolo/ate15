@@ -52,7 +52,7 @@ public class AtorNetGames implements OuvidorProxy {
 
     public void receberJogada(Jogada jogada) {
         Tabuleiro tab = (Tabuleiro) jogada;
-        /*
+        
         try {
             this.atorJogador.receberJogada(tab);
         } catch (NaoConectadoException e) {
@@ -60,7 +60,7 @@ public class AtorNetGames implements OuvidorProxy {
         } catch (NaoJogandoException e) {
             e.printStackTrace();
         }
-        */
+        
     }
 
     public void tratarConexaoPerdida() {

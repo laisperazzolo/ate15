@@ -4,7 +4,7 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 
 public class Jogador implements Jogada{
     
-    protected boolean jogadorDaVez = false;
+    protected boolean jogadorDaVez;
     protected boolean vencedor;
     protected String nome;
     protected String cor;

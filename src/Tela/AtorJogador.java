@@ -12,16 +12,16 @@ public class AtorJogador {
     protected String idUsuario;
     protected TelaInicial tela;
 
-    public AtorJogador(TelaInicial tela, Tabuleiro tabuleiro) {
-        this.tabuleiro = tabuleiro;
+    public AtorJogador(TelaInicial tela ) {
+        this.tabuleiro = new Tabuleiro();
         this.tela = tela;
         this.rede = new AtorNetGames(this);
         tela.setVisible(true);
     }
 
-    public void conectar(String servidor,String idUsuario) throws Exception {
+    public void conectar(String servidor, String idUsuario) throws Exception {
         this.idUsuario = idUsuario;
-        rede.conectar(servidor,idUsuario);
+        rede.conectar(servidor, idUsuario);
     }
     
     public void IniciarPartida() throws NaoConectadoException {
@@ -42,9 +42,9 @@ public class AtorJogador {
         if (tabuleiro.getJogador1().isJogadorDaVez()) {
             tabuleiro.realizaJogada(numeroEscolhido);
             if (tabuleiro.getJogador1().isVencedor()) {
-                this.notificar("Venceu a campanha");
+                this.notificar("Venceu a partida!");
                 if (tabuleiro.getJogador1().getNumeroDeVitorias() < 2) {
-                    this.notificar("Uma nova campanha será iniciada, o outro jogador inicia. Aguarde.");
+                    this.notificar("Uma nova partida será iniciada, o outro jogador inicia. Aguarde.");
                 } else {
                     this.notificar("Venceu o jogo");
                 }
@@ -65,7 +65,6 @@ public class AtorJogador {
     }
 
     public void notificarErro(String erro) {
-        this.tabuleiro.setPartidaEmAndamento(false);
         tela.notificar(erro);
     }
     
@@ -73,48 +72,26 @@ public class AtorJogador {
         this.rede.enviarJogada(this.tabuleiro);
     }
 
-    /*
+    
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
-        if (tab == null) {
-            int opt = this.tela.perguntar("O outro jogador deseja reiniciar a partida. Você iniciará com o lado branco.");
-            if (opt == 0) {
-                this.reiniciar();
-                return;
-            } else {
-                this.enviarJogada();
-                return;
-            }
-        }
-        if (tab.isReiniciado()) {
-            this.tabuleiro = tab;
-            this.reiniciar();
-        }
         this.tabuleiro.setJogador1(tab.getJogador2());
         this.tabuleiro.setJogador2(tab.getJogador1());
-        this.tabuleiro.setReiniciado(false);
 
         this.tabuleiro.getJogador1().setJogadorDaVez(true);
-        // se ataque atualiza interface
-        if (tab.getUltimoMovimento() == 1) {
-            this.tela.limpar();
-            this.tela.atualizaInterface(tab.getUltimaPosClicJogador1());
 
-        }
         if (this.tabuleiro.getJogador2().isVencedor()) {
-            this.notificar("Derrota!");
-            this.tabuleiro.setPartidaEmAndamento(false);
+            this.notificar("Perdeu a partida!");
             if (tabuleiro.getJogador2().getNumeroDeVitorias() < 2) {
-                this.notificar("Uma nova campanha será iniciada, você inicia.");
-                this.iniciarNovaCampanha(1);
+                this.notificar("Uma nova partida será iniciada, você inicia.");
+                //this.iniciarNovaCampanha(1);
             } else {
-                this.tela.notificar("Perdeu a melhor de 3");
+                this.tela.notificar("Perdeu a melhor de 3 partidas.");
                 return;
             }
         }
         this.tela.notificar("É a sua vez " + this.tabuleiro.getJogador1().getNome());
-        tela.setaImagemJogador();
     }
-
+    /*
     public void iniciarNovaCampanha(Integer posicao) {
         tabuleiro.setPartidaEmAndamento(true);
         tela.limpar();
@@ -128,19 +105,15 @@ public class AtorJogador {
         tabuleiro.getJogador2().criarPosicoes();
         tabuleiro.getJogador2().obterPosicaoInicial();
         tela.setaImagemJogador();
-
     }
     */
     
     public void iniciarNovaPartida(Integer posicao) {
         tabuleiro = new Tabuleiro();
         String idAdversario = rede.getNomeAdversario(posicao);
-        tabuleiro.criarJogadores(idUsuario, idAdversario, posicao);
-        tabuleiro.setPartidaEmAndamento(true);
+        tabuleiro.criarJogadores(idUsuario, idAdversario);
         //tela.limpar();
         tela.notificar("Partida encontrada, o nome de seu adversário é: " + idAdversario);
-        tela.iniciarPartida.setEnabled(false);
-        tela.conectar.setEnabled(false);
         if (tabuleiro.getJogador1().isJogadorDaVez()) {
            // tela.setaImagemJogador();
         } else {
