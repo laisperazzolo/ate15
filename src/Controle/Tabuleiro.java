@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controle;
+
 import Modelo.Jogador;
 import Tela.AtorJogador;
 import br.ufsc.inf.leobr.cliente.Jogada;
 
-/**
- *
- * @author Mirian
- */
 public class Tabuleiro implements Jogada{
     protected Jogador jogador1;
     protected Jogador jogador2;
@@ -39,22 +31,22 @@ public class Tabuleiro implements Jogada{
 		return this.partidaEmAndamento;
     }
     
-    /*
-    // tem que mexer nessa bagaça (codigo abaixo)
-    public void realizaJogada(int tipoMovimento, int posicaoClicada) throws Exception {
-        verificaMovimentoPosicao(tipoMovimento, posicaoClicada);
-
-        calcularDistancia(posicaoClicada, jogador1.getPosicaoAtual(), tipoMovimento);
-        if (tipoMovimento == 2) {
-            this.jogador1.setPosicaoAtual(posicaoClicada);
+    
+    public void realizaJogada(int numeroEscolhido) throws Exception {
+        if (jogador1.isJogadorDaVez()) {
+            jogador1.gravarJogada(numeroEscolhido);
+            jogador1.calcularPontuacaoAtual();
+            jogador1.ehVencedor();
+            if (jogador1.isVencedor()) {
+                jogador1.setNumeroDeVitorias(jogador1.getNumeroDeVitorias() + 1);
+            }
+            jogador1.setJogadorDaVez(false);
+            jogador2.setJogadorDaVez(true);
+        } else {
+            throw new Exception("Não é sua vez");
         }
-        if (posicaoClicada == jogador2.getPosicaoAtual()) {
-            jogador1.setVencedor(true);
-            jogador1.setNumeroDeVitorias(jogador1.getNumeroDeVitorias() + 1);
-        }
-        jogador1.setJogadorDaVez(false);
+        
     }
-    */
 
     public Jogador getJogador1() {
         return jogador1;
@@ -71,7 +63,6 @@ public class Tabuleiro implements Jogada{
     public void setJogador2(Jogador jogador2) {
         this.jogador2 = jogador2;
     }
-
     
     public int[] getTabuleiro() {
         return tabuleiro;

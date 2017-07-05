@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
 import br.ufsc.inf.leobr.cliente.Jogada;
 
-/**
- *
- * @author Mirian
- */
 public class Jogador implements Jogada{
     
     protected boolean jogadorDaVez = false;
@@ -89,4 +80,13 @@ public class Jogador implements Jogada{
     public void setPosicao(int[] posicao) {
         this.posicao = posicao;
     }    
+
+    public int getNumeroDeVitorias() {
+        return numeroDeVitorias;
+    }
+
+    public void setNumeroDeVitorias(int numeroDeVitorias) {
+        this.numeroDeVitorias = numeroDeVitorias;
+    }
+    
 }

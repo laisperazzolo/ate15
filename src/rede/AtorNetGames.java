@@ -7,6 +7,7 @@ import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 import Controle.Tabuleiro;
 import Tela.AtorJogador;
+import javax.swing.JOptionPane;
 
 public class AtorNetGames implements OuvidorProxy {
 
@@ -38,7 +39,7 @@ public class AtorNetGames implements OuvidorProxy {
     }
 
     public void iniciarNovaPartida(Integer posicao) {
-        proxy.iniciarNovaPartida(posicao);
+        atorJogador.iniciarNovaPartida(posicao);
     }
 
     public void finalizarPartidaComErro(String message) {

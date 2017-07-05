@@ -5,7 +5,6 @@ import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 import rede.AtorNetGames;
 
-// só copiei
 public class AtorJogador {
 
     protected Tabuleiro tabuleiro;
@@ -37,11 +36,11 @@ public class AtorJogador {
         rede.desconectar();
     }
 
-    /*
-    public void realizaJogada(int tipoMovimento, int posicao) throws Exception {
+    
+    public void realizaJogada(int numeroEscolhido) throws Exception {
         //tratamento de jogador da vez
         if (tabuleiro.getJogador1().isJogadorDaVez()) {
-            tabuleiro.realizaJogada(tipoMovimento, posicao);
+            tabuleiro.realizaJogada(numeroEscolhido);
             if (tabuleiro.getJogador1().isVencedor()) {
                 this.notificar("Venceu a campanha");
                 if (tabuleiro.getJogador1().getNumeroDeVitorias() < 2) {
@@ -53,13 +52,12 @@ public class AtorJogador {
             //enviar a jogada
             this.enviarJogada();
 
-            this.tela.limpar();
-            this.tela.setaImagemJogador();
+           // this.tela.limpar();
+           // this.tela.setaImagemJogador();
         } else {
             throw new Exception("Não é sua vez");
         }
     }
-    */
 
 
     public void notificar(String mensagem) {
@@ -133,5 +131,22 @@ public class AtorJogador {
 
     }
     */
+    
+    public void iniciarNovaPartida(Integer posicao) {
+        tabuleiro = new Tabuleiro();
+        String idAdversario = rede.getNomeAdversario(posicao);
+        tabuleiro.criarJogadores(idUsuario, idAdversario, posicao);
+        tabuleiro.setPartidaEmAndamento(true);
+        //tela.limpar();
+        tela.notificar("Partida encontrada, o nome de seu adversário é: " + idAdversario);
+        tela.iniciarPartida.setEnabled(false);
+        tela.conectar.setEnabled(false);
+        if (tabuleiro.getJogador1().isJogadorDaVez()) {
+           // tela.setaImagemJogador();
+        } else {
+            this.tela.notificar("Agora é a vez do jogador " + idAdversario + ".Aguarde sua jogada");
+        }
+
+    }
 
 }
