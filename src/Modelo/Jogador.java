@@ -42,6 +42,13 @@ public class Jogador implements Jogada{
         posicao[posicaoLivre] = novaJogada;
         posicaoLivre++;
     }
+    
+    public void ehVencedor (){
+        if(calcularPontuacaoAtual() == 15)
+            vencedor = true;
+        else
+            vencedor = false;
+    }
 
     public boolean isJogadorDaVez() {
         return jogadorDaVez;
