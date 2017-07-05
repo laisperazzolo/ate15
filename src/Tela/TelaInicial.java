@@ -1,29 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Tela;
  
 import Controle.Tabuleiro;
+import java.awt.Color;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author projetoEsus
- */
 public class TelaInicial extends javax.swing.JFrame {
     
-    protected JMenuItem conectar, iniciarPartida, desconectar, reiniciar;
+    protected JMenuItem conectar, iniciarPartida, desconectar;
     protected AtorJogador ator;
     protected TelaInstrucoes tela_instrucoes;
     protected static TelaInicial telaInicial;
     protected Tabuleiro tabuleiro = new Tabuleiro();
 
-    /**
-     * Creates new form TelaInicial
-     */
     private TelaInicial(final AtorJogador ator) {
         this.ator = ator;
         initComponents();
@@ -61,6 +50,21 @@ public class TelaInicial extends javax.swing.JFrame {
 
         ate15 = new javax.swing.JLabel();
         botaoInstrucoes = new javax.swing.JButton();
+        botao1 = new javax.swing.JToggleButton();
+        botao2 = new javax.swing.JToggleButton();
+        botao3 = new javax.swing.JToggleButton();
+        botao4 = new javax.swing.JToggleButton();
+        botao5 = new javax.swing.JToggleButton();
+        botao6 = new javax.swing.JToggleButton();
+        botao7 = new javax.swing.JToggleButton();
+        botao8 = new javax.swing.JToggleButton();
+        botao9 = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
+        LabelNomeDoJogador2 = new javax.swing.JLabel();
+        LabelJogador1 = new javax.swing.JLabel();
+        LabelJogador2 = new javax.swing.JLabel();
+        LabelNomeDoJogador1 = new javax.swing.JLabel();
+        botaoSair = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -77,6 +81,120 @@ public class TelaInicial extends javax.swing.JFrame {
         botaoInstrucoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botaoInstrucoesMouseClicked(evt);
+            }
+        });
+
+        botao1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao1.setText("1");
+        botao1.setPreferredSize(new java.awt.Dimension(40, 40));
+        botao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao1ActionPerformed(evt);
+            }
+        });
+
+        botao2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao2.setText("2");
+        botao2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao2ActionPerformed(evt);
+            }
+        });
+
+        botao3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao3.setText("3");
+        botao3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao3ActionPerformed(evt);
+            }
+        });
+
+        botao4.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao4.setText("4");
+        botao4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao4ActionPerformed(evt);
+            }
+        });
+
+        botao5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao5.setText("5");
+        botao5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao5ActionPerformed(evt);
+            }
+        });
+
+        botao6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao6.setText("6");
+        botao6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao6ActionPerformed(evt);
+            }
+        });
+
+        botao7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao7.setText("7");
+        botao7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao7ActionPerformed(evt);
+            }
+        });
+
+        botao8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao8.setText("8");
+        botao8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao8ActionPerformed(evt);
+            }
+        });
+
+        botao9.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        botao9.setText("9");
+        botao9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao9ActionPerformed(evt);
+            }
+        });
+
+        LabelNomeDoJogador2.setText("<< Nome do Jogador1>>");
+
+        LabelJogador1.setText("Jogador 1:");
+
+        LabelJogador2.setText("Jogador 2:");
+
+        LabelNomeDoJogador1.setText("<< Nome do Jogador1>>");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(LabelNomeDoJogador2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(LabelNomeDoJogador1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LabelJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelJogador1)
+                .addGap(7, 7, 7)
+                .addComponent(LabelNomeDoJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(LabelJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelNomeDoJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        botaoSair.setText("Sair");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
             }
         });
 
@@ -115,21 +233,62 @@ public class TelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botaoInstrucoes, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(ate15)
-                        .addGap(65, 65, 65)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botao4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botao7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botao1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botao8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botao5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botao2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botao6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botao3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botao9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoSair, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(ate15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoInstrucoes)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ate15)
-                .addGap(26, 26, 26)
-                .addComponent(botaoInstrucoes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(ate15))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(botaoInstrucoes)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botao3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botao2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botao1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botao6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botao5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botao4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botao7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botao8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botao9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoSair))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -140,11 +299,6 @@ public class TelaInicial extends javax.swing.JFrame {
         // opcao Iniciar Partida
         try {
             ator.IniciarPartida();
-            if (ator.getTabuleiro().informaSePartidaEmAndamento()) {
-                reiniciar.setEnabled(true);
-                iniciarPartida.setEnabled(false);
-            }
-
         } catch (Exception e1) {
             notificar(e1.getMessage());
             e1.printStackTrace();
@@ -157,9 +311,6 @@ public class TelaInicial extends javax.swing.JFrame {
             String nomeJogador = solicitar("Insira seu nome:", null);
             String servidor = solicitar("Insira o servidor:", "localhost");
             ator.conectar(servidor, nomeJogador);
-            iniciarPartida.setEnabled(true);
-            desconectar.setEnabled(true);
-            conectar.setEnabled(false);
             notificar("Conexão estabelecida com sucesso!");
         } catch (Exception ex) {
             notificar(ex.getMessage());
@@ -171,10 +322,6 @@ public class TelaInicial extends javax.swing.JFrame {
         // opcao Desconectar
         try {
             ator.desconectar();
-            desconectar.setEnabled(false);
-            conectar.setEnabled(true);
-            reiniciar.setEnabled(false);
-            iniciarPartida.setEnabled(false);
             notificar("Conexão encerrada com sucesso!");
         } catch (Exception ex) {
             notificar(ex.getMessage());
@@ -185,6 +332,65 @@ public class TelaInicial extends javax.swing.JFrame {
     private void botaoInstrucoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoInstrucoesMouseClicked
         tela_instrucoes.setVisible(true);
     }//GEN-LAST:event_botaoInstrucoesMouseClicked
+
+    private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
+        // TODO add your handling code here:
+        botao1.setEnabled(false);
+    }//GEN-LAST:event_botao1ActionPerformed
+
+    private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
+        // TODO add your handling code here:
+        botao2.setEnabled(false);
+    }//GEN-LAST:event_botao2ActionPerformed
+
+    private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
+        // TODO add your handling code here:
+        botao3.setEnabled(false);
+    }//GEN-LAST:event_botao3ActionPerformed
+
+    private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
+        // TODO add your handling code here:
+        botao4.setEnabled(false);
+    }//GEN-LAST:event_botao4ActionPerformed
+
+    private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
+        // TODO add your handling code here:
+        botao5.setEnabled(false);
+    }//GEN-LAST:event_botao5ActionPerformed
+
+    private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
+        // TODO add your handling code here:
+        botao6.setEnabled(false);
+    }//GEN-LAST:event_botao6ActionPerformed
+
+    private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
+        // TODO add your handling code here:
+        botao7.setEnabled(false);
+    }//GEN-LAST:event_botao7ActionPerformed
+
+    private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
+        // TODO add your handling code here:
+        botao8.setEnabled(false);
+    }//GEN-LAST:event_botao8ActionPerformed
+
+    private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
+        // TODO add your handling code here:
+        botao9.setEnabled(false);
+
+        botao9.setBackground(Color.RED);
+        botao9.setForeground(Color.yellow);
+    }//GEN-LAST:event_botao9ActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+        // TODO add your handling code here:
+        int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente sair da partida?");
+        if(resposta == JOptionPane.YES_OPTION){
+            //atualmente esta só fechando a janela
+            // fecha a janela, mas antes tem que mandar as informações para o outro jogodor e assim encerrar a partida
+            System.exit(0);
+
+        }
+    }//GEN-LAST:event_botaoSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,12 +428,27 @@ public class TelaInicial extends javax.swing.JFrame {
     }
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelJogador1;
+    private javax.swing.JLabel LabelJogador2;
+    private javax.swing.JLabel LabelNomeDoJogador1;
+    private javax.swing.JLabel LabelNomeDoJogador2;
     private javax.swing.JLabel ate15;
+    private javax.swing.JToggleButton botao1;
+    private javax.swing.JToggleButton botao2;
+    private javax.swing.JToggleButton botao3;
+    private javax.swing.JToggleButton botao4;
+    private javax.swing.JToggleButton botao5;
+    private javax.swing.JToggleButton botao6;
+    private javax.swing.JToggleButton botao7;
+    private javax.swing.JToggleButton botao8;
+    private javax.swing.JToggleButton botao9;
     private javax.swing.JButton botaoInstrucoes;
+    private javax.swing.JToggleButton botaoSair;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

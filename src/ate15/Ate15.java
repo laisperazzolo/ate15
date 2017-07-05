@@ -5,9 +5,8 @@
  */
 package ate15;
 
-import Tela.AtorJogador;
 import Tela.TelaInicial;
-import ate15.Telas.TelaDoJogo;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,6 +20,7 @@ public class Ate15 {
     public static void main(String[] args) {
       //  new AtorJogador();
         TelaInicial tela = TelaInicial.getInstance();
+        tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         tela.setVisible(true);
     }
     

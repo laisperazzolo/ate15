@@ -59,13 +59,9 @@ public class AtorJogador {
             throw new Exception("Não é sua vez");
         }
     }
-
-    public void solicitarReinicio() throws NaoJogandoException {
-        this.tabuleiro.getJogador1().setJogadorDaVez(false);
-        this.rede.enviarJogada(null);
-    }
-
     */
+
+
     public void notificar(String mensagem) {
         tela.notificar(mensagem);
     }
@@ -74,9 +70,7 @@ public class AtorJogador {
         this.tabuleiro.setPartidaEmAndamento(false);
         tela.notificar(erro);
     }
-
     
-
     public void enviarJogada() throws NaoJogandoException {
         this.rede.enviarJogada(this.tabuleiro);
     }
@@ -121,33 +115,6 @@ public class AtorJogador {
         }
         this.tela.notificar("É a sua vez " + this.tabuleiro.getJogador1().getNome());
         tela.setaImagemJogador();
-    }
-
-    private void reiniciar() {
-        if (tabuleiro.isReiniciado()) {
-            this.tela.limpar();
-            this.notificar("O tabuleiro foi reiniciado.");
-            return;
-        }
-        Tabuleiro tab = new Tabuleiro();
-        System.out.println("entrou reiniciar");
-        this.tela.limpar();
-        tab.setJogador1(this.tabuleiro.getJogador1());
-        tab.setJogador2(this.tabuleiro.getJogador2());
-        tab.setReiniciado(true);
-        this.tabuleiro = null;
-        this.tabuleiro = tab;
-        this.tabuleiro.getJogador1().setJogadorDaVez(true);
-        tabuleiro.getJogador1().setCodigo(1);
-        tabuleiro.getJogador1().criarPosicoes();
-        tabuleiro.getJogador1().obterPosicaoInicial();
-        tabuleiro.getJogador2().setCodigo(2);
-        tabuleiro.getJogador2().criarPosicoes();
-        tabuleiro.getJogador2().obterPosicaoInicial();
-        System.out.println("chegou " + tabuleiro.getJogador1().getPosicaoAtual());
-        tela.setaImagemJogador();
-        System.out.println("fim");
-
     }
 
     public void iniciarNovaPartida(Integer posicao) {
