@@ -38,15 +38,15 @@ public class AtorNetGames implements OuvidorProxy {
     }
 
     public void iniciarNovaPartida(Integer posicao) {
-        //atorJogador.iniciarNovaPartida(posicao);
+        proxy.iniciarNovaPartida(posicao);
     }
 
     public void finalizarPartidaComErro(String message) {
-        //this.atorJogador.notificarErro("O outro jogador desconectou da partida.");
+        this.atorJogador.notificarErro("O outro jogador desconectou da partida.");
     }
 
     public void receberMensagem(String msg) {
-        //atorJogador.notificar(msg);
+        this.atorJogador.notificar(msg);
     }
 
     public void receberJogada(Jogada jogada) {
@@ -63,12 +63,12 @@ public class AtorNetGames implements OuvidorProxy {
     }
 
     public void tratarConexaoPerdida() {
-        //atorJogador.notificar("Conexão perdida. Por favor, conecte-se novamente.");
+        this.atorJogador.notificar("Conexão perdida. Por favor, conecte-se novamente.");
     }
 
     public void tratarPartidaNaoIniciada(String message) {
-        //this.atorJogador.notificarErro(
-            //"Não foi possível iniciar a partida.\nProvavelmente não existem outros jogadores conectados.");
+        this.atorJogador.notificarErro(
+            "Não foi possível iniciar a partida.\nProvavelmente não existem outros jogadores conectados.");
     }
 
     public String getNomeAdversario(int posicao) {

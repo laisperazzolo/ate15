@@ -117,23 +117,6 @@ public class AtorJogador {
         tela.setaImagemJogador();
     }
 
-    public void iniciarNovaPartida(Integer posicao) {
-        tabuleiro = new Tabuleiro();
-        String idAdversario = rede.getNomeAdversario(posicao);
-        tabuleiro.criarJogadores(idUsuario, idAdversario, posicao);
-        tabuleiro.setPartidaEmAndamento(true);
-        tela.limpar();
-        tela.notificar("Partida encontrada, o nome de seu adversário é: " + idAdversario);
-        tela.iniciarPartida.setEnabled(false);
-        tela.conectar.setEnabled(false);
-        if (tabuleiro.getJogador1().isJogadorDaVez()) {
-            tela.setaImagemJogador();
-        } else {
-            this.tela.notificar("Agora é a vez do jogador " + idAdversario + ".Aguarde sua jogada");
-        }
-
-    }
-
     public void iniciarNovaCampanha(Integer posicao) {
         tabuleiro.setPartidaEmAndamento(true);
         tela.limpar();
