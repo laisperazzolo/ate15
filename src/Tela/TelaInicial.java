@@ -334,61 +334,47 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoInstrucoesMouseClicked
 
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
-        // TODO add your handling code here:
         botao1.setEnabled(false);
     }//GEN-LAST:event_botao1ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
-        // TODO add your handling code here:
         botao2.setEnabled(false);
     }//GEN-LAST:event_botao2ActionPerformed
 
     private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
-        // TODO add your handling code here:
         botao3.setEnabled(false);
     }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
-        // TODO add your handling code here:
         botao4.setEnabled(false);
     }//GEN-LAST:event_botao4ActionPerformed
 
     private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
-        // TODO add your handling code here:
         botao5.setEnabled(false);
     }//GEN-LAST:event_botao5ActionPerformed
 
     private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
-        // TODO add your handling code here:
         botao6.setEnabled(false);
     }//GEN-LAST:event_botao6ActionPerformed
 
     private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
-        // TODO add your handling code here:
         botao7.setEnabled(false);
     }//GEN-LAST:event_botao7ActionPerformed
 
     private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
-        // TODO add your handling code here:
         botao8.setEnabled(false);
     }//GEN-LAST:event_botao8ActionPerformed
 
     private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
-        // TODO add your handling code here:
         botao9.setEnabled(false);
-
         botao9.setBackground(Color.RED);
         botao9.setForeground(Color.yellow);
     }//GEN-LAST:event_botao9ActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        // TODO add your handling code here:
         int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente sair da partida?");
         if(resposta == JOptionPane.YES_OPTION){
-            //atualmente esta só fechando a janela
-            // fecha a janela, mas antes tem que mandar as informações para o outro jogodor e assim encerrar a partida
             System.exit(0);
-
         }
     }//GEN-LAST:event_botaoSairActionPerformed
 
