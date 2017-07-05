@@ -19,6 +19,7 @@ public class Jogador implements Jogada{
     protected String cor;
     protected int[] posicao = new int[5];
     protected int numeroDeVitorias;
+    protected int posicaoLivre = 0;
     
     public Jogador (String nome){
         this.nome = nome;
@@ -27,6 +28,19 @@ public class Jogador implements Jogada{
       this.nome = nome;
        this.cor = cor;
        this.posicao = posicao;
+    }
+    
+    public int calcularPontuacaoAtual (){
+        int pontuacaoAtual = 0;
+        for(int i=0; i<posicao.length; i++){
+            pontuacaoAtual = pontuacaoAtual + posicao[i];
+        }
+        return pontuacaoAtual;
+    }
+    
+    public void gravarJogada(int novaJogada){
+        posicao[posicaoLivre] = novaJogada;
+        posicaoLivre++;
     }
 
     public boolean isJogadorDaVez() {
