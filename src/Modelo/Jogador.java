@@ -7,7 +7,6 @@ public class Jogador implements Jogada{
     protected boolean jogadorDaVez;
     protected boolean vencedor;
     protected String nome;
-    protected String cor;
     protected int[] posicao = new int[5];
     protected int numeroDeVitorias;
     protected int posicaoLivre = 0;
@@ -17,8 +16,7 @@ public class Jogador implements Jogada{
     }
     public Jogador (String nome, String cor, int[] posicao){
       this.nome = nome;
-       this.cor = cor;
-       this.posicao = posicao;
+      this.posicao = posicao;
     }
     
     public int calcularPontuacaoAtual (){
@@ -63,14 +61,6 @@ public class Jogador implements Jogada{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
     }
 
     public int[] getPosicao() {
