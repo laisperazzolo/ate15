@@ -32,7 +32,6 @@ public class AtorJogador {
         controlador.realizaJogada(numeroEscolhido);
     }
 
-
     public void notificar(String mensagem) {
         tela.notificar(mensagem);
     }
@@ -45,13 +44,12 @@ public class AtorJogador {
         controlador.enviarJogada();
     }
 
-    
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
         controlador.receberJogada(tab);
     }
     
-    public void iniciarNovaPartida(Integer posicao) {
-        controlador.iniciarNovaPartida(posicao);
+    public void atualizarNomeAdversario(String nome) {
+        this.tela.atualizarNomeAdversario(nome);
     }
 
 }

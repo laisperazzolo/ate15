@@ -39,7 +39,7 @@ public class AtorNetGames implements OuvidorProxy {
 
     @Override
     public void iniciarNovaPartida(Integer posicao) {
-        controlador.iniciarNovaPartida(posicao);
+        controlador.receberIniciarPartida(posicao);
     }
 
     @Override

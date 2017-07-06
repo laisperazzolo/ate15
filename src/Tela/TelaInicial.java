@@ -66,82 +66,91 @@ public class TelaInicial extends javax.swing.JFrame {
         ate15.setText("Até 15");
 
         botaoInstrucoes.setText("Instruções");
-        botaoInstrucoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoInstrucoesActionPerformed(evt);
+        botaoInstrucoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoInstrucoesMouseClicked(evt);
             }
         });
 
         botao1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao1.setText("1");
+        botao1.setEnabled(false);
         botao1.setPreferredSize(new java.awt.Dimension(40, 40));
-        botao1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao1MouseClicked(evt);
+        botao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao1ActionPerformed(evt);
             }
         });
 
         botao2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao2.setText("2");
-        botao2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao2MouseClicked(evt);
+        botao2.setEnabled(false);
+        botao2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao2ActionPerformed(evt);
             }
         });
 
         botao3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao3.setText("3");
-        botao3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao3MouseClicked(evt);
+        botao3.setEnabled(false);
+        botao3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao3ActionPerformed(evt);
             }
         });
 
         botao4.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao4.setText("4");
-        botao4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao4MouseClicked(evt);
+        botao4.setEnabled(false);
+        botao4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao4ActionPerformed(evt);
             }
         });
 
         botao5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao5.setText("5");
-        botao5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao5MouseClicked(evt);
+        botao5.setEnabled(false);
+        botao5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao5ActionPerformed(evt);
             }
         });
 
         botao6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao6.setText("6");
-        botao6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao6MouseClicked(evt);
+        botao6.setEnabled(false);
+        botao6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao6ActionPerformed(evt);
             }
         });
 
         botao7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao7.setText("7");
-        botao7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao7MouseClicked(evt);
+        botao7.setEnabled(false);
+        botao7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao7ActionPerformed(evt);
             }
         });
 
         botao8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao8.setText("8");
-        botao8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao8MouseClicked(evt);
+        botao8.setEnabled(false);
+        botao8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao8ActionPerformed(evt);
             }
         });
 
         botao9.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao9.setText("9");
-        botao9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botao9MouseClicked(evt);
+        botao9.setEnabled(false);
+        botao9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao9ActionPerformed(evt);
             }
         });
 
@@ -298,10 +307,10 @@ public class TelaInicial extends javax.swing.JFrame {
         // opcao Conectar
         try {
             nomeJogador = solicitar("Insira seu nome:", null);
-            LabelNomeDoJogador1.setText(nomeJogador);
             String servidor = solicitar("Insira o servidor:", "localhost");
             atorJogador.conectar(servidor, nomeJogador);
             notificar("Conexão estabelecida com sucesso!");
+            LabelNomeDoJogador1.setText(nomeJogador);
         } catch (Exception ex) {
             notificar(ex.getMessage());
             ex.printStackTrace();
@@ -335,54 +344,45 @@ public class TelaInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoSairActionPerformed
 
-    private void botao1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao1MouseClicked
-        clickPosicao(1);
-        botao1.setEnabled(false);        
-    }//GEN-LAST:event_botao1MouseClicked
-
-    private void botao2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao2MouseClicked
-        clickPosicao(2);
-        botao2.setEnabled(false);
-    }//GEN-LAST:event_botao2MouseClicked
-
-    private void botao3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao3MouseClicked
-        clickPosicao(3);
-        botao3.setEnabled(false);
-    }//GEN-LAST:event_botao3MouseClicked
-
-    private void botao4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao4MouseClicked
-        clickPosicao(4);
-        botao4.setEnabled(false);
-    }//GEN-LAST:event_botao4MouseClicked
-
-    private void botao5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao5MouseClicked
-        clickPosicao(5);
-        botao5.setEnabled(false);
-    }//GEN-LAST:event_botao5MouseClicked
-
-    private void botao6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao6MouseClicked
-        clickPosicao(6);
-        botao6.setEnabled(false);
-    }//GEN-LAST:event_botao6MouseClicked
-
-    private void botao7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao7MouseClicked
-        clickPosicao(7);
-        botao7.setEnabled(false);
-    }//GEN-LAST:event_botao7MouseClicked
-
-    private void botao8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao8MouseClicked
-        clickPosicao(8);
-        botao8.setEnabled(false);
-    }//GEN-LAST:event_botao8MouseClicked
-
-    private void botao9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao9MouseClicked
-        clickPosicao(9);
-        botao9.setEnabled(false);
-    }//GEN-LAST:event_botao9MouseClicked
-
-    private void botaoInstrucoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInstrucoesActionPerformed
+    private void botaoInstrucoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoInstrucoesMouseClicked
         tela_instrucoes.setVisible(true);
-    }//GEN-LAST:event_botaoInstrucoesActionPerformed
+    }//GEN-LAST:event_botaoInstrucoesMouseClicked
+
+    private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao1ActionPerformed
+
+    private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao2ActionPerformed
+
+    private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao3ActionPerformed
+
+    private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao4ActionPerformed
+
+    private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao5ActionPerformed
+
+    private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao6ActionPerformed
+
+    private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao7ActionPerformed
+
+    private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao8ActionPerformed
+
+    private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botao9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -443,4 +443,8 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    void atualizarNomeAdversario(String nome) {
+        LabelNomeDoJogador2.setText(nome);
+    }
 }

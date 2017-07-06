@@ -11,12 +11,6 @@ public class Tabuleiro implements Jogada{
     public Tabuleiro() {
         
     }
-    
-    public void criarJogadores(String idJogador, String adversario) {
-        jogador1 = new Jogador(idJogador);
-        jogador2 = new Jogador(adversario);
-        jogador1.setJogadorDaVez(true);
-    }
 
     public void realizaJogada(int numeroEscolhido) throws Exception {
         if (jogador1.isJogadorDaVez()) {
