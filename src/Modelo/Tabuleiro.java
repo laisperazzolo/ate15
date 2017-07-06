@@ -1,6 +1,5 @@
 package Modelo;
 
-import Modelo.Jogador;
 import Tela.AtorJogador;
 import br.ufsc.inf.leobr.cliente.Jogada;
 
