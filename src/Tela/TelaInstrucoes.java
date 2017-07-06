@@ -2,11 +2,6 @@ package Tela;
 
 public class TelaInstrucoes extends javax.swing.JFrame {
     
-    protected TelaInicial tela;
-
-    /**
-     * Creates new form TelaInstrucoes
-     */
     public TelaInstrucoes() {
         initComponents();
     }
@@ -85,8 +80,6 @@ public class TelaInstrucoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
-       tela = tela.getInstance();
-       tela.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jToggleButton1MouseClicked
 

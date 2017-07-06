@@ -1,28 +1,22 @@
 package Tela;
- 
-import Controle.Tabuleiro;
+
+import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 public class TelaInicial extends javax.swing.JFrame {
     
     protected JMenuItem conectar, iniciarPartida, desconectar;
-    protected AtorJogador ator;
+    protected AtorJogador atorJogador;
     protected TelaInstrucoes tela_instrucoes;
-    protected static TelaInicial telaInicial;
-    protected Tabuleiro tabuleiro = new Tabuleiro();
+    protected String nomeJogador;
+    protected String nomeAdversario;
 
-    private TelaInicial() {
+    public TelaInicial(AtorJogador ator) {
         initComponents();
         tela_instrucoes = new TelaInstrucoes();
-        ator = new AtorJogador(this);
-    }
-    
-    public static TelaInicial getInstance() {
-        if (telaInicial == null) {
-            telaInicial = new TelaInicial();
-        }
-        return telaInicial;
+        this.atorJogador = ator;
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     public void notificar(String msg) {
@@ -72,9 +66,9 @@ public class TelaInicial extends javax.swing.JFrame {
         ate15.setText("Até 15");
 
         botaoInstrucoes.setText("Instruções");
-        botaoInstrucoes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botaoInstrucoesMouseClicked(evt);
+        botaoInstrucoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoInstrucoesActionPerformed(evt);
             }
         });
 
@@ -293,7 +287,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // opcao Iniciar Partida
         try {
-            ator.IniciarPartida();
+            atorJogador.iniciarPartida();
         } catch (Exception e1) {
             notificar(e1.getMessage());
             e1.printStackTrace();
@@ -303,9 +297,10 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // opcao Conectar
         try {
-            String nomeJogador = solicitar("Insira seu nome:", null);
+            nomeJogador = solicitar("Insira seu nome:", null);
+            LabelNomeDoJogador1.setText(nomeJogador);
             String servidor = solicitar("Insira o servidor:", "localhost");
-            ator.conectar(servidor, nomeJogador);
+            atorJogador.conectar(servidor, nomeJogador);
             notificar("Conexão estabelecida com sucesso!");
         } catch (Exception ex) {
             notificar(ex.getMessage());
@@ -316,7 +311,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // opcao Desconectar
         try {
-            ator.desconectar();
+            atorJogador.desconectar();
             notificar("Conexão encerrada com sucesso!");
         } catch (Exception ex) {
             notificar(ex.getMessage());
@@ -326,18 +321,13 @@ public class TelaInicial extends javax.swing.JFrame {
     
     public void clickPosicao(int numeroEscolhido) {
         try {
-            ator.realizaJogada(numeroEscolhido);
-            botao1.setEnabled(false);
+            atorJogador.realizaJogada(numeroEscolhido);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
             e.printStackTrace();
         }
     }
     
-    private void botaoInstrucoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoInstrucoesMouseClicked
-        tela_instrucoes.setVisible(true);
-    }//GEN-LAST:event_botaoInstrucoesMouseClicked
-
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
         int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente sair da partida?");
         if(resposta == JOptionPane.YES_OPTION){
@@ -346,7 +336,8 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botao1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao1MouseClicked
-        clickPosicao(1);        
+        clickPosicao(1);
+        botao1.setEnabled(false);        
     }//GEN-LAST:event_botao1MouseClicked
 
     private void botao2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botao2MouseClicked
@@ -388,6 +379,10 @@ public class TelaInicial extends javax.swing.JFrame {
         clickPosicao(9);
         botao9.setEnabled(false);
     }//GEN-LAST:event_botao9MouseClicked
+
+    private void botaoInstrucoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInstrucoesActionPerformed
+        tela_instrucoes.setVisible(true);
+    }//GEN-LAST:event_botaoInstrucoesActionPerformed
 
     /**
      * @param args the command line arguments

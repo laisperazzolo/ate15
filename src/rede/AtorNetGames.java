@@ -1,23 +1,22 @@
 package rede;
 
+import Controle.Controlador;
 import br.ufsc.inf.leobr.cliente.Jogada;
 import br.ufsc.inf.leobr.cliente.OuvidorProxy;
 import br.ufsc.inf.leobr.cliente.Proxy;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
-import Controle.Tabuleiro;
-import Tela.AtorJogador;
-import javax.swing.JOptionPane;
+import Modelo.Tabuleiro;
 
 public class AtorNetGames implements OuvidorProxy {
 
     private static final long serialVersionUID = 0L;
-    protected AtorJogador atorJogador;
+    protected Controlador controlador;
     protected Proxy proxy;
 
-    public AtorNetGames(AtorJogador ator) {
+    public AtorNetGames(Controlador ctrl) {
         super();
-        this.atorJogador = ator;
+        this.controlador = ctrl;
         this.proxy = Proxy.getInstance();
         this.proxy.addOuvinte(this);
     }
@@ -38,23 +37,27 @@ public class AtorNetGames implements OuvidorProxy {
         proxy.reiniciarPartida();
     }
 
+    @Override
     public void iniciarNovaPartida(Integer posicao) {
-        atorJogador.iniciarNovaPartida(posicao);
+        controlador.iniciarNovaPartida(posicao);
     }
 
+    @Override
     public void finalizarPartidaComErro(String message) {
-        this.atorJogador.notificarErro("O outro jogador desconectou da partida.");
+        this.controlador.notificarErro("O outro jogador desconectou da partida.");
     }
 
+    @Override
     public void receberMensagem(String msg) {
-        this.atorJogador.notificar(msg);
+        this.controlador.notificar(msg);
     }
 
+    @Override
     public void receberJogada(Jogada jogada) {
         Tabuleiro tab = (Tabuleiro) jogada;
         
         try {
-            this.atorJogador.receberJogada(tab);
+            this.controlador.receberJogada(tab);
         } catch (NaoConectadoException e) {
             e.printStackTrace();
         } catch (NaoJogandoException e) {
@@ -63,12 +66,14 @@ public class AtorNetGames implements OuvidorProxy {
         
     }
 
+    @Override
     public void tratarConexaoPerdida() {
-        this.atorJogador.notificar("Conexão perdida. Por favor, conecte-se novamente.");
+        this.controlador.notificar("Conexão perdida. Por favor, conecte-se novamente.");
     }
 
+    @Override
     public void tratarPartidaNaoIniciada(String message) {
-        this.atorJogador.notificarErro(
+        this.controlador.notificarErro(
             "Não foi possível iniciar a partida.\nProvavelmente não existem outros jogadores conectados.");
     }
 
