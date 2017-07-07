@@ -71,14 +71,22 @@ public class Controlador {
                 this.jogador1.incrementaNumeroDeVitorias();
                 this.atorJogador.atualizaVitoriasJogador(jogador1.getNumeroDeVitorias());
                 this.tabuleiro.setVitoriasAdversario(jogador1.getNumeroDeVitorias());
+                this.tabuleiro.atualizaNumeroPartidas();
+                this.atorJogador.atualizaNumeroPartidas(tabuleiro.getNumeroPartidas());
                 
                 /*
-                if (tabuleiro.getJogador1().getNumeroDeVitorias() < 2) {
+                if (this.tabuleiro.getNumeroPartidas() < 3) {
                     this.notificar("Uma nova partida será iniciada, o outro jogador inicia. Aguarde.");
-                } else {
-                    this.notificar("Venceu o jogo");
+                }
+                
+                if (this.tabuleiro.getNumeroPartidas() == 3) {
+                    if (this.jogador1.getNumeroDeVitorias() > 1) {
+                        this.notificar("Parabéns! Venceu o jogo!");
+                    }
+                    
                 }
                 */
+                
             }
             //enviar a jogada
             this.enviarJogada();
@@ -110,9 +118,10 @@ public class Controlador {
         this.tabuleiro = tab;
         this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
         
-        if (tab.getAdversarioVenceu()) {
+        if (tabuleiro.getAdversarioVenceu()) {
             this.notificar("Perdeu a partida!");
             this.atorJogador.atualizaVitoriasAdversario(this.tabuleiro.getVitoriasAdversario());
+            this.atorJogador.atualizaNumeroPartidas(tab.getNumeroPartidas());
         } else {
             this.atorJogador.notificar("É a sua vez " + this.jogador1.getNome());
         }

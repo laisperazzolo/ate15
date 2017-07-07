@@ -68,4 +68,8 @@ public class AtorJogador {
     public void atualizaVitoriasAdversario(int numVitorias) {
         this.tela.atualizaVitoriasAdversario(numVitorias);
     }
+
+    public void atualizaNumeroPartidas(int numeroPartidas) {
+        this.tela.atualizaNumeroPartidas(numeroPartidas);
+    }
 }

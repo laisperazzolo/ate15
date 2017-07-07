@@ -9,6 +9,7 @@ public class Tabuleiro implements Jogada{
     protected boolean[][] botoesAtivados = new boolean[3][3];
     protected boolean adversarioVenceu = false;
     protected int vitoriasAdversario = 0;
+    protected int numeroPartidas = 0;
     
     public Tabuleiro() {
         String dados = "";
@@ -19,7 +20,6 @@ public class Tabuleiro implements Jogada{
             }
             dados += "\n";
         }
-        System.out.println(dados);
     }
 
     public void clickPosicao(int numeroEscolhido) throws Exception {
@@ -43,15 +43,6 @@ public class Tabuleiro implements Jogada{
             case 9: this.botoesAtivados[2][2] = false;
             break;
         }
-        
-        String dados = "";
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                dados += " " + botoesAtivados[i][j];
-            }
-            dados += "\n";
-        }
-        System.out.println(dados);
         
         /*
         if (jogador1.isJogadorDaVez()) {
@@ -105,6 +96,14 @@ public class Tabuleiro implements Jogada{
 
     public void setVitoriasAdversario(int vitoriasAdversario) {
         this.vitoriasAdversario = vitoriasAdversario;
+    }
+
+    public void atualizaNumeroPartidas() {
+        this.numeroPartidas ++;
+    }
+
+    public int getNumeroPartidas() {
+        return numeroPartidas;
     }
 
 }

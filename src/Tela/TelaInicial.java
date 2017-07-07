@@ -58,7 +58,7 @@ public class TelaInicial extends javax.swing.JFrame {
         LabelListaNumSelecionados = new javax.swing.JLabel();
         jLabelTituloNumSelecionados = new javax.swing.JLabel();
         LabelTituloNumPartidas = new javax.swing.JLabel();
-        LabelNumVitorias = new javax.swing.JLabel();
+        LabelNumPartidas = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -244,11 +244,11 @@ public class TelaInicial extends javax.swing.JFrame {
 
         LabelTituloNumPartidas.setText("Nº de Partidas:");
 
-        LabelNumVitorias.setBackground(new java.awt.Color(255, 255, 255));
-        LabelNumVitorias.setForeground(new java.awt.Color(255, 0, 51));
-        LabelNumVitorias.setText(" 0");
-        LabelNumVitorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        LabelNumVitorias.setOpaque(true);
+        LabelNumPartidas.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNumPartidas.setForeground(new java.awt.Color(255, 0, 51));
+        LabelNumPartidas.setText(" 0");
+        LabelNumPartidas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LabelNumPartidas.setOpaque(true);
 
         jMenu2.setText("Opções");
 
@@ -313,7 +313,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(LabelTituloNumPartidas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LabelNumVitorias, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LabelNumPartidas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -332,7 +332,7 @@ public class TelaInicial extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelTituloNumPartidas)
-                            .addComponent(LabelNumVitorias, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(LabelNumPartidas, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(ate15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTituloNumSelecionados)
@@ -502,7 +502,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel LabelListaNumSelecionados1;
     private javax.swing.JLabel LabelNomeDoJogador1;
     private javax.swing.JLabel LabelNomeDoJogador2;
-    private javax.swing.JLabel LabelNumVitorias;
+    private javax.swing.JLabel LabelNumPartidas;
     private javax.swing.JLabel LabelNumVitoriasAdv;
     private javax.swing.JLabel LabelNumVitoriasJog;
     private javax.swing.JLabel LabelTituloNumPartidas;
@@ -570,6 +570,10 @@ public class TelaInicial extends javax.swing.JFrame {
 
     void atualizaVitoriasAdversario(int numVitorias) {
         LabelNumVitoriasAdv.setText(" " + numVitorias);
+    }
+
+    void atualizaNumeroPartidas(int numeroPartidas) {
+        LabelNumPartidas.setText(" " + numeroPartidas);
     }
     
 }
