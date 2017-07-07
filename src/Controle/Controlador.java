@@ -46,7 +46,8 @@ public class Controlador {
         
         if (this.jogador1.isJogadorDaVez()) {
             this.tabuleiro.clickPosicao(numeroEscolhido);
-            boolean venceu = this.jogador1.verificaVitoria(numeroEscolhido);//adiciona o nº no array e verifica vitoria
+            boolean venceu = false;
+            venceu = this.jogador1.verificaVencedor(numeroEscolhido);//adiciona o nº no array e verifica vitoria
             if (venceu) {
                 this.notificar("Venceu a partida!");
                 
