@@ -40,6 +40,22 @@ public class Controlador {
     public void desconectar() throws NaoConectadoException {
         rede.desconectar();
     }
+    
+    
+    //invocado pelo proxy
+    //recebe a solicitação de início do proxy 
+    public void receberIniciarPartida(Integer posicao) {
+        this.atorJogador.limparTela();
+
+        String nomeAdversario = rede.getNomeAdversario(posicao);
+        
+         this.jogador2 = new Jogador(nomeAdversario);
+         this.atorJogador.atualizarNomeAdversario(nomeAdversario);
+        
+        if (jogador1.isJogadorDaVez()) {
+            this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
+        } 
+    }
 
     
     public void clickPosicao(int numeroEscolhido) throws Exception {
@@ -88,9 +104,7 @@ public class Controlador {
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
         
         this.jogador1.setJogadorDaVez();
-        
-        this.tabuleiro = tab ;
-        
+        this.tabuleiro = tab;
         this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
         
         if (tab.getAdversarioVenceu()) {
@@ -128,22 +142,6 @@ public class Controlador {
         tela.setaImagemJogador();
     }
     */
-    
-    
-    //invocado pelo proxy
-    //recebe a solicitação de início do proxy 
-    public void receberIniciarPartida(Integer posicao) {
-        this.atorJogador.limparTela();
-
-        String nomeAdversario = rede.getNomeAdversario(posicao);
-        
-         this.jogador2 = new Jogador(nomeAdversario);
-         this.atorJogador.atualizarNomeAdversario(nomeAdversario);
-        
-        if (jogador1.isJogadorDaVez()) {
-            this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
-        } 
-    }
     
     public Tabuleiro getTabuleiro() {
         return this.tabuleiro;
