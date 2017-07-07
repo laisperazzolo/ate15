@@ -4,8 +4,7 @@ import Tela.AtorJogador;
 import br.ufsc.inf.leobr.cliente.Jogada;
 
 public class Tabuleiro implements Jogada{
-    protected Jogador jogador1;
-    protected Jogador jogador2;
+    
     protected AtorJogador ator;
     protected int[][] matriz = new int[3][3];
     
@@ -21,7 +20,24 @@ public class Tabuleiro implements Jogada{
         System.out.println(dados);
     }
 
-    public void realizaJogada(int numeroEscolhido) throws Exception {
+    public void clickPosicao(int numeroEscolhido) throws Exception {
+        switch (numeroEscolhido) {
+            case 1: this.matriz[0][0] = 1;
+            
+            break;
+            
+                
+        }
+        
+        String dados = "";
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                dados += " " + matriz[i][j];
+            }
+            dados += "\n";
+        }
+        System.out.println(dados);
+        /*
         if (jogador1.isJogadorDaVez()) {
             jogador1.gravarJogada(numeroEscolhido);
             jogador1.calcularPontuacaoAtual();
@@ -34,22 +50,7 @@ public class Tabuleiro implements Jogada{
         } else {
             throw new Exception("Não é sua vez");
         }
-    }
-
-    public Jogador getJogador1() {
-        return jogador1;
-    }
-
-    public void setJogador1(Jogador jogador1) {
-        this.jogador1 = jogador1;
-    }
-
-    public Jogador getJogador2() {
-        return jogador2;
-    }
-
-    public void setJogador2(Jogador jogador2) {
-        this.jogador2 = jogador2;
+        */
     }
 
 }

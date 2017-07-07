@@ -45,7 +45,7 @@ public class AtorJogador {
     }
 
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
-        controlador.receberJogada(tab);
+        //controlador.receberJogada(tab);
     }
     
     public void atualizarNomeAdversario(String nome) {

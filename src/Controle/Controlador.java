@@ -42,16 +42,20 @@ public class Controlador {
 
     
     public void clickPosicao(int numeroEscolhido) throws Exception {
-        //tratamento de jogador da vez
-        if (tabuleiro.getJogador1().isJogadorDaVez()) {
-            tabuleiro.realizaJogada(numeroEscolhido);
-            if (tabuleiro.getJogador1().isVencedor()) {
+        
+        if (this.jogador1.isJogadorDaVez()) {
+            this.tabuleiro.clickPosicao(numeroEscolhido);
+            boolean venceu = this.jogador1.verificaVitoria(numeroEscolhido);//adiciona o nº no array e verifica vitoria
+            if (venceu) {
                 this.notificar("Venceu a partida!");
+                
+                /*
                 if (tabuleiro.getJogador1().getNumeroDeVitorias() < 2) {
                     this.notificar("Uma nova partida será iniciada, o outro jogador inicia. Aguarde.");
                 } else {
                     this.notificar("Venceu o jogo");
                 }
+                */
             }
             //enviar a jogada
             this.enviarJogada();
@@ -76,7 +80,7 @@ public class Controlador {
         this.rede.enviarJogada(this.tabuleiro);
     }
 
-    
+    /*
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
         this.tabuleiro.setJogador1(tab.getJogador2());
         this.tabuleiro.setJogador2(tab.getJogador1());
@@ -98,7 +102,7 @@ public class Controlador {
         }
         this.atorJogador.notificar("É a sua vez " + this.tabuleiro.getJogador1().getNome());
     }
-    /*
+    
     public void iniciarNovaCampanha(Integer posicao) {
         tabuleiro.setPartidaEmAndamento(true);
         tela.limpar();

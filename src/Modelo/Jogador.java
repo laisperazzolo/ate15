@@ -42,19 +42,19 @@ public class Jogador implements Jogada{
     }
 
     public boolean isJogadorDaVez() {
-        return jogadorDaVez;
+        return this.jogadorDaVez;
     }
 
-    public void setJogadorDaVez(boolean jogadorDaVez) {
-        this.jogadorDaVez = jogadorDaVez;
+    public void setJogadorDaVez(boolean ehJogadorDaVez) {
+        this.jogadorDaVez = ehJogadorDaVez;
     }
 
     public boolean isVencedor() {
-        return vencedor;
+        return this.vencedor;
     }
 
-    public void setVencedor(boolean vencedor) {
-        this.vencedor = vencedor;
+    public void setVencedor(boolean ehVencedor) {
+        this.vencedor = ehVencedor;
     }
 
     public String getNome() {
@@ -79,6 +79,10 @@ public class Jogador implements Jogada{
 
     public void setNumeroDeVitorias(int numeroDeVitorias) {
         this.numeroDeVitorias = numeroDeVitorias;
+    }
+
+    public boolean verificaVitoria(int numeroEscolhido) {
+        return false;
     }
     
 }
