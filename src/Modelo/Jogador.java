@@ -8,6 +8,7 @@ public class Jogador implements Jogada{
     protected String nome;
     protected int numeroDeVitorias;
     protected String temNum;
+    int caso = 0;
     
     public Jogador (String nome){
         this.nome = nome;
@@ -38,67 +39,137 @@ public class Jogador implements Jogada{
         this.numeroDeVitorias = numeroDeVitorias;
     }
     
-    public boolean verificaVencedor(int numEscolhido) 
-    {
+    public boolean verificaVencedor(int numEscolhido) {
         char[] novoString = this.temNum.toCharArray();
         novoString[numEscolhido] = '1';
         this.temNum = String.valueOf(novoString);
+        this.defineCaso();
         return this.calculcaVencedor();
     }
     
     public boolean calculcaVencedor() {
-        switch (this.temNum) {
-            case "0000001001": // 6,9
+        
+        switch (caso) {
+            case 1: // 6,9
                 return true;
 
-            case "0000000110": // 7,8
+            case 2: // 7,8
                 return true;
 
-            case "0010100001": // 2,4,9
+            case 3: // 2,4,9
                 return true;
 
-            case "0001010100": // 3,5,7
+            case 4: // 3,5,7
                 return true;
 
-            case "0100001010": // 1,6,8
+            case 5: // 1,6,8
                 return true;
 
-            case "0001100010": // 3,4,8
+            case 6: // 3,4,8
                 return true;
 
-            case "0100010001": // 1,5,9
+            case 7: // 1,5,9
                 return true;
 
-            case "0010001100": // 2,6,7
+            case 8: // 2,6,7
                 return true;
 
-            case "0000111000": // 4,5,6
+            case 9: // 4,5,6
                 return true;
 
-            case "0010010010": // 2,5,8
+            case 10: // 2,5,8
                 return true;
 
-            case "0011101000": // 2,3,4,6
+            case 11: // 2,3,4,6
                 return true;
 
-            case "0101011000": // 1,3,5,6
+            case 12: // 1,3,5,6
                 return true;
 
-            case "0101100100": // 1,3,4,7
+            case 13: // 1,3,4,7
                 return true;
 
-            case "0110100010": // 1,2,4,8
+            case 14: // 1,2,4,8
                 return true;
 
-            case "0111000001": // 1,2,3,9
+            case 15: // 1,2,3,9
                 return true;
 
-            case "0111110000": // 1,2,3,4,5
+            case 16: // 1,2,3,4,5
                 return true;
 
             default:
                 return false;
         }     
-    }   
+    }
+    
+    public void defineCaso() {
+        
+        if (temNum.charAt(6)=='1' && temNum.charAt(9)=='1') {
+            this.caso = 1;
+        }
+        
+        if (temNum.charAt(7)=='1' && temNum.charAt(8)=='1') {
+            this.caso = 2;
+        }
+        
+        if (temNum.charAt(2)=='1' && temNum.charAt(4)=='1' && temNum.charAt(9)=='1') {
+            this.caso = 3;
+        }
+        
+        if (temNum.charAt(3)=='1' && temNum.charAt(5)=='1' && temNum.charAt(7)=='1') {
+            this.caso = 4;
+        }
+        
+        if (temNum.charAt(1)=='1' && temNum.charAt(6)=='1' && temNum.charAt(8)=='1') {
+            this.caso = 5;
+        }
+        
+        if (temNum.charAt(3)=='1' && temNum.charAt(4)=='1' && temNum.charAt(8)=='1') {
+            this.caso = 6;
+        }
+        
+        if (temNum.charAt(1)=='1' && temNum.charAt(5)=='1' && temNum.charAt(9)=='1') {
+            this.caso = 7;
+        }
+        
+        if (temNum.charAt(2)=='1' && temNum.charAt(6)=='1' && temNum.charAt(7)=='1') {
+            this.caso = 8;
+        }
+        
+        if (temNum.charAt(4)=='1' && temNum.charAt(5)=='1' && temNum.charAt(6)=='1') {
+            this.caso = 9;
+        }
+        
+        if (temNum.charAt(2)=='1' && temNum.charAt(5)=='1' && temNum.charAt(8)=='1') {
+            this.caso = 10;
+        }
+        
+        if (temNum.charAt(2)=='1' && temNum.charAt(3)=='1' && temNum.charAt(4)=='1' && temNum.charAt(6)=='1') {
+            this.caso = 11;
+        }
+        
+        if (temNum.charAt(1)=='1' && temNum.charAt(3)=='1' && temNum.charAt(5)=='1' && temNum.charAt(6)=='1') {
+            this.caso = 12;
+        }
+        
+        if (temNum.charAt(1)=='1' && temNum.charAt(3)=='1' && temNum.charAt(4)=='1' && temNum.charAt(7)=='1') {
+            this.caso = 13;
+        }
+        
+        if (temNum.charAt(1)=='1' && temNum.charAt(2)=='1' && temNum.charAt(4)=='1' && temNum.charAt(8)=='1') {
+            this.caso = 14;
+        }
+        
+        if (temNum.charAt(1)=='1' && temNum.charAt(2)=='1' && temNum.charAt(3)=='1' && temNum.charAt(9)=='1') {
+            this.caso = 15;
+        }
+        
+        if (temNum.charAt(1)=='1' && temNum.charAt(2)=='1' && temNum.charAt(3)=='1' && temNum.charAt(4)=='1'
+                && temNum.charAt(5)=='1') {
+            this.caso = 16;
+        }
+        
+    }
     
 }
