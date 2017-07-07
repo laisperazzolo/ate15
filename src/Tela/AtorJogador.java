@@ -62,4 +62,8 @@ public class AtorJogador {
         this.tela.limparTela();
     }
 
+    public void atualizaListaNumEscolhidos(int numeroEscolhido) {
+        this.tela.atualizaListaNumEscolhidos(numeroEscolhido);
+    }
+
 }

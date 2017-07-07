@@ -8,13 +8,11 @@ public class TelaInicial extends javax.swing.JFrame {
     
     protected JMenuItem conectar, iniciarPartida, desconectar;
     protected AtorJogador atorJogador;
-    protected TelaInstrucoes tela_instrucoes;
     protected String nomeJogador;
     protected String nomeAdversario;
 
     public TelaInicial(AtorJogador ator) {
         initComponents();
-        tela_instrucoes = new TelaInstrucoes();
         this.atorJogador = ator;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -37,7 +35,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         ate15 = new javax.swing.JLabel();
-        botaoInstrucoes = new javax.swing.JButton();
         botao1 = new javax.swing.JToggleButton();
         botao2 = new javax.swing.JToggleButton();
         botao3 = new javax.swing.JToggleButton();
@@ -53,6 +50,8 @@ public class TelaInicial extends javax.swing.JFrame {
         LabelJogador2 = new javax.swing.JLabel();
         LabelNomeDoJogador1 = new javax.swing.JLabel();
         botaoSair = new javax.swing.JToggleButton();
+        LabelListaNumSelecionados = new javax.swing.JLabel();
+        jLabelTituloNumSelecionados = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -60,17 +59,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         ate15.setFont(new java.awt.Font("Comic Sans MS", 0, 36)); // NOI18N
         ate15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ate15.setText("Até 15");
-
-        botaoInstrucoes.setText("Instruções");
-        botaoInstrucoes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botaoInstrucoesMouseClicked(evt);
-            }
-        });
 
         botao1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         botao1.setText("1");
@@ -156,9 +149,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
         LabelNomeDoJogador2.setText("<< Nome do Jogador1>>");
 
-        LabelJogador1.setText("Jogador 1:");
+        LabelJogador1.setText("Jogador:");
 
-        LabelJogador2.setText("Jogador 2:");
+        LabelJogador2.setText("Adversário:");
 
         LabelNomeDoJogador1.setText("<< Nome do Jogador1>>");
 
@@ -172,7 +165,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +174,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(LabelJogador1)
                 .addGap(7, 7, 7)
                 .addComponent(LabelNomeDoJogador1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
                 .addComponent(LabelJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelNomeDoJogador2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,6 +187,14 @@ public class TelaInicial extends javax.swing.JFrame {
                 botaoSairActionPerformed(evt);
             }
         });
+
+        LabelListaNumSelecionados.setBackground(new java.awt.Color(255, 255, 255));
+        LabelListaNumSelecionados.setForeground(new java.awt.Color(255, 0, 51));
+        LabelListaNumSelecionados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        LabelListaNumSelecionados.setOpaque(true);
+
+        jLabelTituloNumSelecionados.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabelTituloNumSelecionados.setText("Números selecionados:");
 
         jMenu2.setText("Opções");
 
@@ -230,9 +231,18 @@ public class TelaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(LabelListaNumSelecionados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(153, 153, 153))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ate15, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(botao4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botao7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -252,22 +262,18 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botaoSair, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(ate15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoInstrucoes)))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addComponent(jLabelTituloNumSelecionados, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(ate15))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botaoInstrucoes)))
+                .addComponent(ate15, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelTituloNumSelecionados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelListaNumSelecionados, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,7 +293,7 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addComponent(botao8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botao9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botaoSair))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -344,53 +350,49 @@ public class TelaInicial extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoSairActionPerformed
 
-    private void botaoInstrucoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoInstrucoesMouseClicked
-        tela_instrucoes.setVisible(true);
-    }//GEN-LAST:event_botaoInstrucoesMouseClicked
-
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
         clickPosicao(1);
-        botao1.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao1ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
         clickPosicao(2);
-        botao2.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao2ActionPerformed
 
     private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
         clickPosicao(3);
-        botao3.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
         clickPosicao(4);
-        botao4.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao4ActionPerformed
 
     private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
         clickPosicao(5);
-        botao5.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao5ActionPerformed
 
     private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
         clickPosicao(6);
-        botao6.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao6ActionPerformed
 
     private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
         clickPosicao(7);
-        botao7.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao7ActionPerformed
 
     private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
         clickPosicao(8);
-        botao8.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao8ActionPerformed
 
     private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
         clickPosicao(9);
-        botao9.setEnabled(false);
+        this.limparTela();
     }//GEN-LAST:event_botao9ActionPerformed
 
     /**
@@ -431,6 +433,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelJogador1;
     private javax.swing.JLabel LabelJogador2;
+    private javax.swing.JLabel LabelListaNumSelecionados;
     private javax.swing.JLabel LabelNomeDoJogador1;
     private javax.swing.JLabel LabelNomeDoJogador2;
     private javax.swing.JLabel ate15;
@@ -443,8 +446,8 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JToggleButton botao7;
     private javax.swing.JToggleButton botao8;
     private javax.swing.JToggleButton botao9;
-    private javax.swing.JButton botaoInstrucoes;
     private javax.swing.JToggleButton botaoSair;
+    private javax.swing.JLabel jLabelTituloNumSelecionados;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -479,5 +482,13 @@ public class TelaInicial extends javax.swing.JFrame {
         botao7.setEnabled(false);
         botao8.setEnabled(false);
         botao9.setEnabled(false);
+    }
+
+    void atualizaListaNumEscolhidos(int numeroEscolhido) {
+        if (LabelListaNumSelecionados.getText().equals("") == false) {
+            this.LabelListaNumSelecionados.setText(LabelListaNumSelecionados.getText() + ", " + numeroEscolhido);
+        } else {
+            this.LabelListaNumSelecionados.setText(LabelListaNumSelecionados.getText() + " " + numeroEscolhido);
+        }
     }
 }

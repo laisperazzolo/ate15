@@ -45,6 +45,7 @@ public class Controlador {
     public void clickPosicao(int numeroEscolhido) throws Exception {
         
         if (this.jogador1.isJogadorDaVez()) {
+            this.atorJogador.atualizaListaNumEscolhidos(numeroEscolhido);
             this.tabuleiro.clickPosicao(numeroEscolhido);
             boolean venceu = false;
             venceu = this.jogador1.verificaVencedor(numeroEscolhido);//adiciona o nº no array e verifica vitoria
