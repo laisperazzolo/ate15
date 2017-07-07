@@ -7,14 +7,10 @@ public class Jogador implements Jogada{
     protected boolean jogadorDaVez = false;
     protected String nome;
     protected int numeroDeVitorias;
-    protected String temNum ;
-    //protected boolean[] numerosEscolhidos = new boolean[10];
+    protected String temNum;
     
     public Jogador (String nome){
         this.nome = nome;
-//        for (int i  = 0; i < 10; i++) {
-//            numerosEscolhidos[i] = false;
-//        }
         this.temNum = "0000000000" ;
     }
 
@@ -33,14 +29,6 @@ public class Jogador implements Jogada{
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-//    public boolean[] getNumerosEscolhidos() {
-//        return numerosEscolhidos;
-//    }
-//
-//    public void setNumerosEscolhidos(boolean[] numerosEscolhidos) {
-//        this.numerosEscolhidos = numerosEscolhidos;
-//    } 
 
     public int getNumeroDeVitorias() {
         return numeroDeVitorias;
@@ -111,24 +99,6 @@ public class Jogador implements Jogada{
             default:
                 return false;
         }     
-    }
-    
-    
-
-//    public boolean verificaVencedor(int numeroEscolhido) {
-  //  String temNum = "0000000000" ;
-//        numerosEscolhidos[numeroEscolhido] = true;
-//        return calculaVitoria();
-//    }
-//    
-//    public boolean calculaVitoria() {
-//        switch ()
-//            case numerosEscolhidos[0] + 
-//        return false;
-//    }
-        
-        
-        
-        
+    }   
     
 }
