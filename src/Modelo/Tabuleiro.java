@@ -6,10 +6,7 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 public class Tabuleiro implements Jogada{
     
     protected AtorJogador ator;
-   // protected int[][] matriz = new int[3][3];
-    protected boolean[][] botoesAtivados = new boolean[3][3];
-
-   
+    protected boolean[][] botoesAtivados = new boolean[3][3];   
     
     public Tabuleiro() {
         String dados = "";
@@ -53,6 +50,7 @@ public class Tabuleiro implements Jogada{
             dados += "\n";
         }
         System.out.println(dados);
+        
         /*
         if (jogador1.isJogadorDaVez()) {
             jogador1.gravarJogada(numeroEscolhido);

@@ -53,10 +53,6 @@ public class AtorJogador {
     public void atualizarNomeAdversario(String nome) {
         this.tela.atualizarNomeAdversario(nome);
     }
-
-    public void habilitarBotoes() {
-        this.tela.habilitarBotoes();
-    }
     
     public void ativaBotoesDisponiveis (boolean[][] botoes)
     {

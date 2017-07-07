@@ -10,7 +10,6 @@ public class TelaInicial extends javax.swing.JFrame {
     protected AtorJogador atorJogador;
     protected String nomeJogador;
     protected String nomeAdversario;
-//    protected boolean[][] botoesAtivos = new boolean[3][3] ;
 
     public TelaInicial(AtorJogador ator) {
         initComponents();
@@ -461,18 +460,6 @@ public class TelaInicial extends javax.swing.JFrame {
         LabelNomeDoJogador2.setText(nome);
     }
 
-    void habilitarBotoes() {
-        botao1.setEnabled(true);
-        botao2.setEnabled(true);
-        botao3.setEnabled(true);
-        botao4.setEnabled(true);
-        botao5.setEnabled(true);
-        botao6.setEnabled(true);
-        botao7.setEnabled(true);
-        botao8.setEnabled(true);
-        botao9.setEnabled(true);
-    }
-
     void limparTela() {
         botao1.setEnabled(false);
         botao2.setEnabled(false);
@@ -493,14 +480,7 @@ public class TelaInicial extends javax.swing.JFrame {
         }
     }
     
-//    
-//    public void ativaBotao1(boolean b)
-//    {
-//        this.botao1.setEnabled (b) ;
-//    }
-    
-    public void ativaBotoesDisponiveis(boolean[][] botoesAtivar)
-    {
+    public void ativaBotoesDisponiveis(boolean[][] botoesAtivar) {
         botao1.setEnabled(botoesAtivar[0][0]);
         botao2.setEnabled(botoesAtivar[0][1]);
         botao3.setEnabled(botoesAtivar[0][2]);
@@ -511,4 +491,5 @@ public class TelaInicial extends javax.swing.JFrame {
         botao8.setEnabled(botoesAtivar[2][1]);
         botao9.setEnabled(botoesAtivar[2][2]);
     }
+    
 }

@@ -29,13 +29,7 @@ public class Controlador {
         String servidor = server;
         String nomeJogador = idUsuario;
         this.jogador1 = new Jogador(nomeJogador);
-        rede.conectar(servidor, idUsuario);   
-        
-//        boolean teste[] = new boolean[1] ;
-//        teste[0] = true ;
-//        
-//        this.atorJogador.getTela().ativaBotao1(teste[0]);
-        
+        rede.conectar(servidor, idUsuario);
         }
     
     public void iniciarPartida() throws NaoConectadoException {
@@ -144,8 +138,6 @@ public class Controlador {
         
         if (jogador1.isJogadorDaVez()) {
             this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
-
-//            this.atorJogador.habilitarBotoes();
         } 
     }
     
