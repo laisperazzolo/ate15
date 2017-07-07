@@ -19,6 +19,7 @@ public class Jogador implements Jogada{
       this.posicao = posicao;
     }
     
+    //arrumar esse metodo
     public int calcularPontuacaoAtual (){
         int pontuacaoAtual = 0;
         for(int i=0; i<posicao.length; i++){
@@ -27,16 +28,17 @@ public class Jogador implements Jogada{
         return pontuacaoAtual;
     }
     
-    public void gravarJogada(int novaJogada){
-        posicao[posicaoLivre] = novaJogada;
-        posicaoLivre++;
-    }
-    
+    //arrumar esse metodo
     public void ehVencedor (){
         if(calcularPontuacaoAtual() == 15)
             vencedor = true;
         else
             vencedor = false;
+    }
+
+    public void gravarJogada(int novaJogada){
+        posicao[posicaoLivre] = novaJogada;
+        posicaoLivre++;
     }
 
     public boolean isJogadorDaVez() {

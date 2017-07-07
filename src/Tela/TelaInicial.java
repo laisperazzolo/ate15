@@ -232,7 +232,7 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(botao4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botao7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -349,39 +349,39 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoInstrucoesMouseClicked
 
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(1);
     }//GEN-LAST:event_botao1ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(2);
     }//GEN-LAST:event_botao2ActionPerformed
 
     private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(3);
     }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(4);
     }//GEN-LAST:event_botao4ActionPerformed
 
     private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(5);
     }//GEN-LAST:event_botao5ActionPerformed
 
     private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(6);
     }//GEN-LAST:event_botao6ActionPerformed
 
     private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(7);
     }//GEN-LAST:event_botao7ActionPerformed
 
     private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(8);
     }//GEN-LAST:event_botao8ActionPerformed
 
     private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
-        // TODO add your handling code here:
+        clickPosicao(9);
     }//GEN-LAST:event_botao9ActionPerformed
 
     /**
@@ -446,5 +446,17 @@ public class TelaInicial extends javax.swing.JFrame {
 
     void atualizarNomeAdversario(String nome) {
         LabelNomeDoJogador2.setText(nome);
+    }
+
+    void habilitarBotoes() {
+        botao1.setEnabled(true);
+        botao2.setEnabled(true);
+        botao3.setEnabled(true);
+        botao4.setEnabled(true);
+        botao5.setEnabled(true);
+        botao6.setEnabled(true);
+        botao7.setEnabled(true);
+        botao8.setEnabled(true);
+        botao9.setEnabled(true);
     }
 }

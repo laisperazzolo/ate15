@@ -52,4 +52,8 @@ public class AtorJogador {
         this.tela.atualizarNomeAdversario(nome);
     }
 
+    public void habilitarBotoes() {
+        this.tela.habilitarBotoes();
+    }
+
 }

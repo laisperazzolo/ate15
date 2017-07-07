@@ -7,9 +7,18 @@ public class Tabuleiro implements Jogada{
     protected Jogador jogador1;
     protected Jogador jogador2;
     protected AtorJogador ator;
+    protected int[][] matriz = new int[3][3];
     
     public Tabuleiro() {
-        
+        String dados = "";
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                this.matriz[i][j] = 0;
+                dados += " " + matriz[i][j];
+            }
+            dados += "\n";
+        }
+        System.out.println(dados);
     }
 
     public void realizaJogada(int numeroEscolhido) throws Exception {

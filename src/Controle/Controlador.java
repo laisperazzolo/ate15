@@ -118,23 +118,23 @@ public class Controlador {
     
     //invocado pelo proxy
     //recebe a solicitação de início do proxy 
-    public void receberIniciarPartida(Integer posicao) {        
+    public void receberIniciarPartida(Integer posicao) {
+
+        String nomeAdversario = rede.getNomeAdversario(posicao);
         //verifica se é a vez do jogador
         if (posicao == 1) {
             jogador1.setJogadorDaVez(true);            
         }
         if (jogador1.isJogadorDaVez()) {
-            String nomeAdversario = rede.getNomeAdversario(posicao);
             this.jogador2 = new Jogador(nomeAdversario);
             this.atorJogador.atualizarNomeAdversario(nomeAdversario);
+            this.atorJogador.habilitarBotoes();
         }
      //   tabuleiro.criarJogadores(jogador1, idAdversario);
         //tela.limpar();
-        //this.atorJogador.notificar("Partida encontrada, o nome de seu adversário é: " + nomeAdversario);
        // if (tabuleiro.getJogador1().isJogadorDaVez()) {
            // tela.setaImagemJogador();
-       // } else {
-       //     this.atorJogador.notificar("Agora é a vez do jogador " + nomeAdversario + ".Aguarde sua jogada");
+       // } 
        // }
     }
     
