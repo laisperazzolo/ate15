@@ -6,14 +6,17 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 public class Tabuleiro implements Jogada{
     
     protected AtorJogador ator;
-    protected int[][] matriz = new int[3][3];
+   // protected int[][] matriz = new int[3][3];
+    protected boolean[][] botoesAtivados = new boolean[3][3];
+
+   
     
     public Tabuleiro() {
         String dados = "";
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                this.matriz[i][j] = 0;
-                dados += " " + matriz[i][j];
+                this.botoesAtivados[i][j] = true;
+                dados += " " + botoesAtivados[i][j];
             }
             dados += "\n";
         }
@@ -22,30 +25,30 @@ public class Tabuleiro implements Jogada{
 
     public void clickPosicao(int numeroEscolhido) throws Exception {
         switch (numeroEscolhido) {
-            case 1: this.matriz[0][0] = 1;
+            case 1: this.botoesAtivados[0][0] = false;
             break;
-            case 2: this.matriz[0][1] = 1;
+            case 2: this.botoesAtivados[0][1] = false;
             break;
-            case 3: this.matriz[0][2] = 1;
+            case 3: this.botoesAtivados[0][2] = false;
             break;
-            case 4: this.matriz[1][0] = 1;
+            case 4: this.botoesAtivados[1][0] = false;
             break;
-            case 5: this.matriz[1][1] = 1;
+            case 5: this.botoesAtivados[1][1] = false;
             break;
-            case 6: this.matriz[1][2] = 1;
+            case 6: this.botoesAtivados[1][2] = false;
             break;
-            case 7: this.matriz[2][0] = 1;
+            case 7: this.botoesAtivados[2][0] = false;
             break;
-            case 8: this.matriz[2][1] = 1;
+            case 8: this.botoesAtivados[2][1] = false;
             break;
-            case 9: this.matriz[2][2] = 1;
+            case 9: this.botoesAtivados[2][2] = false;
             break;
         }
         
         String dados = "";
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                dados += " " + matriz[i][j];
+                dados += " " + botoesAtivados[i][j];
             }
             dados += "\n";
         }
@@ -64,6 +67,14 @@ public class Tabuleiro implements Jogada{
             throw new Exception("Não é sua vez");
         }
         */
+    }
+    
+     public boolean[][] getBotoesAtivados() {
+        return botoesAtivados;
+    }
+
+    public void setBotoesAtivados(boolean[][] botoesAtivados) {
+        this.botoesAtivados = botoesAtivados;
     }
 
 }

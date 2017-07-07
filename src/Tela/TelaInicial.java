@@ -10,6 +10,7 @@ public class TelaInicial extends javax.swing.JFrame {
     protected AtorJogador atorJogador;
     protected String nomeJogador;
     protected String nomeAdversario;
+//    protected boolean[][] botoesAtivos = new boolean[3][3] ;
 
     public TelaInicial(AtorJogador ator) {
         initComponents();
@@ -351,7 +352,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
-        clickPosicao(1);
+        this.clickPosicao(1);
         this.limparTela();
     }//GEN-LAST:event_botao1ActionPerformed
 
@@ -490,5 +491,24 @@ public class TelaInicial extends javax.swing.JFrame {
         } else {
             this.LabelListaNumSelecionados.setText(LabelListaNumSelecionados.getText() + " " + numeroEscolhido);
         }
+    }
+    
+//    
+//    public void ativaBotao1(boolean b)
+//    {
+//        this.botao1.setEnabled (b) ;
+//    }
+    
+    public void ativaBotoesDisponiveis(boolean[][] botoesAtivar)
+    {
+        botao1.setEnabled(botoesAtivar[0][0]);
+        botao2.setEnabled(botoesAtivar[0][1]);
+        botao3.setEnabled(botoesAtivar[0][2]);
+        botao4.setEnabled(botoesAtivar[1][0]);
+        botao5.setEnabled(botoesAtivar[1][1]);
+        botao6.setEnabled(botoesAtivar[1][2]);
+        botao7.setEnabled(botoesAtivar[2][0]);
+        botao8.setEnabled(botoesAtivar[2][1]);
+        botao9.setEnabled(botoesAtivar[2][2]);
     }
 }

@@ -57,6 +57,11 @@ public class AtorJogador {
     public void habilitarBotoes() {
         this.tela.habilitarBotoes();
     }
+    
+    public void ativaBotoesDisponiveis (boolean[][] botoes)
+    {
+        this.tela.ativaBotoesDisponiveis(botoes);
+    }
 
     public void limparTela() {
         this.tela.limparTela();
@@ -66,4 +71,8 @@ public class AtorJogador {
         this.tela.atualizaListaNumEscolhidos(numeroEscolhido);
     }
 
+    public TelaInicial getTela()
+    {
+        return this.tela ;
+    }
 }

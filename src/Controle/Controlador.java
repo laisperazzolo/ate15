@@ -29,8 +29,14 @@ public class Controlador {
         String servidor = server;
         String nomeJogador = idUsuario;
         this.jogador1 = new Jogador(nomeJogador);
-        rede.conectar(servidor, idUsuario);        
-    }
+        rede.conectar(servidor, idUsuario);   
+        
+//        boolean teste[] = new boolean[1] ;
+//        teste[0] = true ;
+//        
+//        this.atorJogador.getTela().ativaBotao1(teste[0]);
+        
+        }
     
     public void iniciarPartida() throws NaoConectadoException {
         jogador1.setJogadorDaVez(); 
@@ -45,7 +51,9 @@ public class Controlador {
     public void clickPosicao(int numeroEscolhido) throws Exception {
         
         if (this.jogador1.isJogadorDaVez()) {
-            this.atorJogador.atualizaListaNumEscolhidos(numeroEscolhido);
+            this.atorJogador.atualizaListaNumEscolhidos(numeroEscolhido);   
+            // tem que ser a primeira ação do "receber jogada"
+           // this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados()); 
             this.tabuleiro.clickPosicao(numeroEscolhido);
             boolean venceu = false;
             venceu = this.jogador1.verificaVencedor(numeroEscolhido);//adiciona o nº no array e verifica vitoria
@@ -131,12 +139,14 @@ public class Controlador {
 
         String nomeAdversario = rede.getNomeAdversario(posicao);
         
+         this.jogador2 = new Jogador(nomeAdversario);
+         this.atorJogador.atualizarNomeAdversario(nomeAdversario);
+        
         if (jogador1.isJogadorDaVez()) {
-            this.jogador2 = new Jogador(nomeAdversario);
-            this.atorJogador.atualizarNomeAdversario(nomeAdversario);
-            this.atorJogador.habilitarBotoes();
-        } else {
-        }
+            this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
+
+//            this.atorJogador.habilitarBotoes();
+        } 
     }
     
     
