@@ -563,5 +563,13 @@ public class TelaInicial extends javax.swing.JFrame {
         botao8.setEnabled(botoesAtivar[2][1]);
         botao9.setEnabled(botoesAtivar[2][2]);
     }
+
+    void atualizaVitoriasJogador(int numVitorias) {
+        LabelNumVitoriasJog.setText(" " + numVitorias);
+    }
+
+    void atualizaVitoriasAdversario(int numVitorias) {
+        LabelNumVitoriasAdv.setText(" " + numVitorias);
+    }
     
 }

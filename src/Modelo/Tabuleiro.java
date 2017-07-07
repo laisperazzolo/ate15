@@ -8,6 +8,7 @@ public class Tabuleiro implements Jogada{
     protected AtorJogador ator;
     protected boolean[][] botoesAtivados = new boolean[3][3];
     protected boolean adversarioVenceu = false;
+    protected int vitoriasAdversario = 0;
     
     public Tabuleiro() {
         String dados = "";
@@ -96,6 +97,14 @@ public class Tabuleiro implements Jogada{
             }
             dados += "\n";
         }
+    }
+
+    public int getVitoriasAdversario() {
+        return vitoriasAdversario;
+    }
+
+    public void setVitoriasAdversario(int vitoriasAdversario) {
+        this.vitoriasAdversario = vitoriasAdversario;
     }
 
 }

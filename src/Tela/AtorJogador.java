@@ -40,16 +40,6 @@ public class AtorJogador {
         tela.notificar(erro);
     }
     
-    /*
-    public void enviarJogada() throws NaoJogandoException {
-        controlador.enviarJogada();
-    }
-*/
-
-    public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
-        //controlador.receberJogada(tab);
-    }
-    
     public void atualizarNomeAdversario(String nome) {
         this.tela.atualizarNomeAdversario(nome);
     }
@@ -67,8 +57,15 @@ public class AtorJogador {
         this.tela.atualizaListaNumEscolhidos(numeroEscolhido);
     }
 
-    public TelaInicial getTela()
-    {
+    public TelaInicial getTela() {
         return this.tela ;
+    }
+
+    public void atualizaVitoriasJogador(int numVitorias) {
+        this.tela.atualizaVitoriasJogador(numVitorias);
+    }
+
+    public void atualizaVitoriasAdversario(int numVitorias) {
+        this.tela.atualizaVitoriasAdversario(numVitorias);
     }
 }

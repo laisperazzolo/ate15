@@ -68,6 +68,9 @@ public class Controlador {
             this.tabuleiro.setAdversarioVenceu(venceu);
             if (venceu) {
                 this.notificar("Venceu a partida!");
+                this.jogador1.incrementaNumeroDeVitorias();
+                this.atorJogador.atualizaVitoriasJogador(jogador1.getNumeroDeVitorias());
+                this.tabuleiro.setVitoriasAdversario(jogador1.getNumeroDeVitorias());
                 
                 /*
                 if (tabuleiro.getJogador1().getNumeroDeVitorias() < 2) {
@@ -109,6 +112,7 @@ public class Controlador {
         
         if (tab.getAdversarioVenceu()) {
             this.notificar("Perdeu a partida!");
+            this.atorJogador.atualizaVitoriasAdversario(this.tabuleiro.getVitoriasAdversario());
         } else {
             this.atorJogador.notificar("É a sua vez " + this.jogador1.getNome());
         }

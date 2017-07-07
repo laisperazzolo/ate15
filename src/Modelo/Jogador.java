@@ -6,7 +6,7 @@ public class Jogador implements Jogada{
     
     protected boolean jogadorDaVez = false;
     protected String nome;
-    protected int numeroDeVitorias;
+    protected int numeroDeVitorias = 0;
     protected String temNum;
     int caso = 0;
     
@@ -170,6 +170,10 @@ public class Jogador implements Jogada{
             this.caso = 16;
         }
         
+    }
+
+    public void incrementaNumeroDeVitorias() {
+        this.numeroDeVitorias ++;
     }
     
 }
