@@ -4,8 +4,8 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 
 public class Jogador implements Jogada{
     
-    protected boolean jogadorDaVez;
-    protected boolean vencedor;
+    protected boolean jogadorDaVez = false;
+    protected boolean vencedor = false;
     protected String nome;
     protected int[] posicao = new int[5];
     protected int numeroDeVitorias;
@@ -45,8 +45,8 @@ public class Jogador implements Jogada{
         return this.jogadorDaVez;
     }
 
-    public void setJogadorDaVez(boolean ehJogadorDaVez) {
-        this.jogadorDaVez = ehJogadorDaVez;
+    public void setJogadorDaVez() {
+        this.jogadorDaVez = true;
     }
 
     public boolean isVencedor() {

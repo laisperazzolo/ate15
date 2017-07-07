@@ -40,9 +40,11 @@ public class AtorJogador {
         tela.notificar(erro);
     }
     
+    /*
     public void enviarJogada() throws NaoJogandoException {
         controlador.enviarJogada();
     }
+*/
 
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
         //controlador.receberJogada(tab);

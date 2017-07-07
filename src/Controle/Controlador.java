@@ -33,6 +33,7 @@ public class Controlador {
     }
     
     public void iniciarPartida() throws NaoConectadoException {
+        jogador1.setJogadorDaVez(); 
         rede.iniciarPartida();
     }
     
@@ -58,7 +59,7 @@ public class Controlador {
                 */
             }
             //enviar a jogada
-            this.enviarJogada();
+            //this.enviarJogada();
 
            // this.tela.limpar();
            // this.tela.setaImagemJogador();
@@ -76,6 +77,7 @@ public class Controlador {
         atorJogador.notificar(erro);
     }
     
+    /*
     public void enviarJogada() throws NaoJogandoException {
         this.rede.enviarJogada(this.tabuleiro);
     }
@@ -123,20 +125,15 @@ public class Controlador {
     //invocado pelo proxy
     //recebe a solicitação de início do proxy 
     public void receberIniciarPartida(Integer posicao) {
-        
         this.atorJogador.limparTela();
 
         String nomeAdversario = rede.getNomeAdversario(posicao);
-        
-        //verifica se é a vez do jogador
-        if (posicao == 1) {
-            jogador1.setJogadorDaVez(true);            
-        }
         
         if (jogador1.isJogadorDaVez()) {
             this.jogador2 = new Jogador(nomeAdversario);
             this.atorJogador.atualizarNomeAdversario(nomeAdversario);
             this.atorJogador.habilitarBotoes();
+        } else {
         }
     }
     

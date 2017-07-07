@@ -23,10 +23,23 @@ public class Tabuleiro implements Jogada{
     public void clickPosicao(int numeroEscolhido) throws Exception {
         switch (numeroEscolhido) {
             case 1: this.matriz[0][0] = 1;
-            
             break;
-            
-                
+            case 2: this.matriz[0][1] = 1;
+            break;
+            case 3: this.matriz[0][2] = 1;
+            break;
+            case 4: this.matriz[1][0] = 1;
+            break;
+            case 5: this.matriz[1][1] = 1;
+            break;
+            case 6: this.matriz[1][2] = 1;
+            break;
+            case 7: this.matriz[2][0] = 1;
+            break;
+            case 8: this.matriz[2][1] = 1;
+            break;
+            case 9: this.matriz[2][2] = 1;
+            break;
         }
         
         String dados = "";
