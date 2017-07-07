@@ -6,7 +6,8 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 public class Tabuleiro implements Jogada{
     
     protected AtorJogador ator;
-    protected boolean[][] botoesAtivados = new boolean[3][3];   
+    protected boolean[][] botoesAtivados = new boolean[3][3];
+    protected boolean adversarioVenceu = false;
     
     public Tabuleiro() {
         String dados = "";
@@ -73,6 +74,28 @@ public class Tabuleiro implements Jogada{
 
     public void setBotoesAtivados(boolean[][] botoesAtivados) {
         this.botoesAtivados = botoesAtivados;
+    }
+
+    public void setAdversarioVenceu(boolean adversarioVenceu) {
+        this.adversarioVenceu = adversarioVenceu;
+        if(adversarioVenceu) {
+            this.encerraPartida();
+        }
+    }
+
+    public boolean getAdversarioVenceu() {
+        return adversarioVenceu;
+    }
+    
+    public void encerraPartida() {
+        String dados = "";
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                this.botoesAtivados[i][j] = false;
+                dados += " " + botoesAtivados[i][j];
+            }
+            dados += "\n";
+        }
     }
 
 }

@@ -54,8 +54,8 @@ public class AtorNetGames implements OuvidorProxy {
 
     @Override
     public void receberJogada(Jogada jogada) {
-        //Tabuleiro tab = (Tabuleiro) jogada;
-        /*
+        Tabuleiro tab = (Tabuleiro) jogada;
+        
         try {
             this.controlador.receberJogada(tab);
         } catch (NaoConectadoException e) {
@@ -63,7 +63,6 @@ public class AtorNetGames implements OuvidorProxy {
         } catch (NaoJogandoException e) {
             e.printStackTrace();
         }
-        */
     }
 
     @Override

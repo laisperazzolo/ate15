@@ -45,12 +45,11 @@ public class Controlador {
     public void clickPosicao(int numeroEscolhido) throws Exception {
         
         if (this.jogador1.isJogadorDaVez()) {
-            this.atorJogador.atualizaListaNumEscolhidos(numeroEscolhido);   
-            // tem que ser a primeira ação do "receber jogada"
-           // this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados()); 
+            this.atorJogador.atualizaListaNumEscolhidos(numeroEscolhido);
             this.tabuleiro.clickPosicao(numeroEscolhido);
             boolean venceu = false;
             venceu = this.jogador1.verificaVencedor(numeroEscolhido);//adiciona o nº no array e verifica vitoria
+            this.tabuleiro.setAdversarioVenceu(venceu);
             if (venceu) {
                 this.notificar("Venceu a partida!");
                 
@@ -63,7 +62,7 @@ public class Controlador {
                 */
             }
             //enviar a jogada
-            //this.enviarJogada();
+            this.enviarJogada();
 
            // this.tela.limpar();
            // this.tela.setaImagemJogador();
@@ -81,23 +80,22 @@ public class Controlador {
         atorJogador.notificar(erro);
     }
     
-    /*
     public void enviarJogada() throws NaoJogandoException {
         this.rede.enviarJogada(this.tabuleiro);
     }
 
-    /*
+    
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
-        this.tabuleiro.setJogador1(tab.getJogador2());
-        this.tabuleiro.setJogador2(tab.getJogador1());
-
-        this.tabuleiro.getJogador1().setJogadorDaVez(true);
         
-        //this.tela.limpar();
-	//this.tela.atualizaInterface(tab.getUltimaPosClicJogador1());
-
-        if (this.tabuleiro.getJogador2().isVencedor()) {
-            this.atorJogador.notificar("Perdeu a partida!");
+        this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
+        
+        if (tab.getAdversarioVenceu()) {
+            this.notificar("Perdeu a partida!");
+        } else {
+            this.atorJogador.notificar("É a sua vez " + this.jogador1.getNome());
+        }
+        
+        /*
             if (tabuleiro.getJogador2().getNumeroDeVitorias() < 2) {
                 this.atorJogador.notificar("Uma nova partida será iniciada, você inicia.");
                 //this.iniciarNovaCampanha(1);
@@ -105,10 +103,12 @@ public class Controlador {
                 this.atorJogador.notificar("Perdeu a melhor de 3 partidas.");
                 return;
             }
-        }
-        this.atorJogador.notificar("É a sua vez " + this.tabuleiro.getJogador1().getNome());
+        */
     }
     
+    
+    
+    /*
     public void iniciarNovaCampanha(Integer posicao) {
         tabuleiro.setPartidaEmAndamento(true);
         tela.limpar();
@@ -140,8 +140,6 @@ public class Controlador {
             this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
         } 
     }
-    
-    
     
     public Tabuleiro getTabuleiro() {
         return this.tabuleiro;
