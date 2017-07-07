@@ -41,7 +41,7 @@ public class Controlador {
     }
 
     
-    public void realizaJogada(int numeroEscolhido) throws Exception {
+    public void clickPosicao(int numeroEscolhido) throws Exception {
         //tratamento de jogador da vez
         if (tabuleiro.getJogador1().isJogadorDaVez()) {
             tabuleiro.realizaJogada(numeroEscolhido);
@@ -119,23 +119,21 @@ public class Controlador {
     //invocado pelo proxy
     //recebe a solicitação de início do proxy 
     public void receberIniciarPartida(Integer posicao) {
+        
+        this.atorJogador.limparTela();
 
         String nomeAdversario = rede.getNomeAdversario(posicao);
+        
         //verifica se é a vez do jogador
         if (posicao == 1) {
             jogador1.setJogadorDaVez(true);            
         }
+        
         if (jogador1.isJogadorDaVez()) {
             this.jogador2 = new Jogador(nomeAdversario);
             this.atorJogador.atualizarNomeAdversario(nomeAdversario);
             this.atorJogador.habilitarBotoes();
         }
-     //   tabuleiro.criarJogadores(jogador1, idAdversario);
-        //tela.limpar();
-       // if (tabuleiro.getJogador1().isJogadorDaVez()) {
-           // tela.setaImagemJogador();
-       // } 
-       // }
     }
     
     

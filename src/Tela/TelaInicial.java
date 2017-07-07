@@ -330,7 +330,7 @@ public class TelaInicial extends javax.swing.JFrame {
     
     public void clickPosicao(int numeroEscolhido) {
         try {
-            atorJogador.realizaJogada(numeroEscolhido);
+            atorJogador.clickPosicao(numeroEscolhido);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
             e.printStackTrace();
@@ -350,38 +350,47 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
         clickPosicao(1);
+        botao1.setEnabled(false);
     }//GEN-LAST:event_botao1ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
         clickPosicao(2);
+        botao2.setEnabled(false);
     }//GEN-LAST:event_botao2ActionPerformed
 
     private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
         clickPosicao(3);
+        botao3.setEnabled(false);
     }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
         clickPosicao(4);
+        botao4.setEnabled(false);
     }//GEN-LAST:event_botao4ActionPerformed
 
     private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
         clickPosicao(5);
+        botao5.setEnabled(false);
     }//GEN-LAST:event_botao5ActionPerformed
 
     private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
         clickPosicao(6);
+        botao6.setEnabled(false);
     }//GEN-LAST:event_botao6ActionPerformed
 
     private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
         clickPosicao(7);
+        botao7.setEnabled(false);
     }//GEN-LAST:event_botao7ActionPerformed
 
     private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
         clickPosicao(8);
+        botao8.setEnabled(false);
     }//GEN-LAST:event_botao8ActionPerformed
 
     private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
         clickPosicao(9);
+        botao9.setEnabled(false);
     }//GEN-LAST:event_botao9ActionPerformed
 
     /**
@@ -458,5 +467,17 @@ public class TelaInicial extends javax.swing.JFrame {
         botao7.setEnabled(true);
         botao8.setEnabled(true);
         botao9.setEnabled(true);
+    }
+
+    void limparTela() {
+        botao1.setEnabled(false);
+        botao2.setEnabled(false);
+        botao3.setEnabled(false);
+        botao4.setEnabled(false);
+        botao5.setEnabled(false);
+        botao6.setEnabled(false);
+        botao7.setEnabled(false);
+        botao8.setEnabled(false);
+        botao9.setEnabled(false);
     }
 }

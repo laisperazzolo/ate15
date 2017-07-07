@@ -28,8 +28,8 @@ public class AtorJogador {
         controlador.desconectar();
     }
     
-    public void realizaJogada(int numeroEscolhido) throws Exception {
-        controlador.realizaJogada(numeroEscolhido);
+    public void clickPosicao(int numeroEscolhido) throws Exception {
+        controlador.clickPosicao(numeroEscolhido);
     }
 
     public void notificar(String mensagem) {
@@ -54,6 +54,10 @@ public class AtorJogador {
 
     public void habilitarBotoes() {
         this.tela.habilitarBotoes();
+    }
+
+    public void limparTela() {
+        this.tela.limparTela();
     }
 
 }
