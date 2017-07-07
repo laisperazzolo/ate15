@@ -87,6 +87,10 @@ public class Controlador {
     
     public void receberJogada(Tabuleiro tab) throws NaoConectadoException, NaoJogandoException {
         
+        this.jogador1.setJogadorDaVez();
+        
+        this.tabuleiro = tab ;
+        
         this.atorJogador.ativaBotoesDisponiveis(this.tabuleiro.getBotoesAtivados());
         
         if (tab.getAdversarioVenceu()) {
