@@ -173,11 +173,13 @@ public class TelaInicial extends javax.swing.JFrame {
 
         LabelNumVitoriasJog.setBackground(new java.awt.Color(255, 255, 255));
         LabelNumVitoriasJog.setForeground(new java.awt.Color(255, 0, 51));
+        LabelNumVitoriasJog.setText(" 0");
         LabelNumVitoriasJog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LabelNumVitoriasJog.setOpaque(true);
 
         LabelNumVitoriasAdv.setBackground(new java.awt.Color(255, 255, 255));
         LabelNumVitoriasAdv.setForeground(new java.awt.Color(255, 0, 51));
+        LabelNumVitoriasAdv.setText(" 0");
         LabelNumVitoriasAdv.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LabelNumVitoriasAdv.setOpaque(true);
 
@@ -244,6 +246,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         LabelNumVitorias.setBackground(new java.awt.Color(255, 255, 255));
         LabelNumVitorias.setForeground(new java.awt.Color(255, 0, 51));
+        LabelNumVitorias.setText(" 0");
         LabelNumVitorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LabelNumVitorias.setOpaque(true);
 
